@@ -1,0 +1,115 @@
+#/***********************************************************************
+# * Licensed Materials - Property of IBM 
+# *
+# * IBM SPSS Products: Statistics Common
+# *
+# * (C) Copyright IBM Corp. 1989, 2014
+# *
+# * US Government Users Restricted Rights - Use, duplication or disclosure
+# * restricted by GSA ADP Schedule Contract with IBM Corp. 
+# ************************************************************************/
+
+# NLS_ENCODING=UTF-8
+# IBMUPYTH
+
+
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-05-21 17:51+China Standard Time\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: SPSSINC_MERGE_TABLES.py:25
+msgid "This module requires at least SPSS Statistics 17"
+msgstr ""
+"Este módulo requiere SPSS Statistics 17 al menos"
+
+#: SPSSINC_MERGE_TABLES.py:266
+msgid "---"
+msgstr ""
+"---"
+
+#: SPSSINC_MERGE_TABLES.py:323
+msgid "Function reference %s not valid"
+msgstr ""
+"La referencia de la función %s no es válida"
+
+#: SPSSINC_MERGE_TABLES.py:344
+msgid "SpssClient.StartClient failed."
+msgstr ""
+"Error de SpssClient.StartClient."
+
+#: SPSSINC_MERGE_TABLES.py:423
+msgid "Incorrect number of table objects specified: %s"
+msgstr ""
+"Se ha especificado un número incorrecto de objetos de tabla: %s"
+
+#: SPSSINC_MERGE_TABLES.py:447
+msgid "Exactly two table numbers or OMS subtypes must be specified or a requested table not found."
+msgstr ""
+"Se deben especificar exactamente dos números de tabla o subtipos SGR o bien no se ha encontrado una tabla solicitada."
+
+#: SPSSINC_MERGE_TABLES.py:474
+msgid "At least two table numbers must be specified."
+msgstr ""
+"Se deben especificar al menos dos números de tabla."
+
+#: SPSSINC_MERGE_TABLES.py:505
+msgid "mode must be merge or replace"
+msgstr ""
+"el modo debe ser fusión o sustitución"
+
+#: SPSSINC_MERGE_TABLES.py:514
+msgid "A specified item is not a pivot table or does not exist."
+msgstr ""
+"El elemento especificado no es una tabla dinámica o no existe."
+
+#: SPSSINC_MERGE_TABLES.py:559
+msgid "Only the first layer has been merged from the secondary table."
+msgstr ""
+"Sólo se ha fusionado la primera capa de la tabla secundaria."
+
+#: SPSSINC_MERGE_TABLES.py:612
+msgid ""
+"Tables cannot be merged: The secondary table labels are not unique.\n"
+"First duplicate row and column labels after transformation:\n"
+"%s\n"
+"\n"
+"%s"
+msgstr ""
+"Las tablas no se pueden fusionar: las etiquetas de la tabla secundaria no son exclusivas.\n"
+"Duplicar primero las etiquetas de filas y columnas tras la transformación:\n"
+"%s\n"
+"\n"
+"%s"
+
+#: SPSSINC_MERGE_TABLES.py:739 SPSSINC_MERGE_TABLES.py:748
+#: SPSSINC_MERGE_TABLES.py:848 SPSSINC_MERGE_TABLES.py:852
+#: SPSSINC_MERGE_TABLES.py:859 SPSSINC_MERGE_TABLES.py:863
+msgid "Statistics"
+msgstr ""
+"Estadísticos"
+
+#: SPSSINC_MERGE_TABLES.py:794
+msgid "A row label level is out of range.  Labels: %s, Index: %s"
+msgstr ""
+"Un nivel de etiqueta de fila está fuera del rango. Etiquetas: %s, Índice: %s"
+
+#: SPSSINC_MERGE_TABLES.py:811
+msgid "A column label level is out of range.  Labels: %s, Index: %s"
+msgstr ""
+"Un nivel de etiqueta de columna está fuera del rango. Etiquetas: %s, Índice: %s"
+
+
+
