@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+<link rel="stylesheet" type="text/css" href="extsyntax.css" />
+<title>SPSSINC MERGE TABLES Extension Command</title>
+
+
+
+</head>
+
+<body>
+<h1>SPSSINC MERGE TABLES Extension Command</h1>
+
+<p>Merge two tables together, inserting material from the secondary
+table into the primary one, using the row or column labels to
+define how they are joined.</p>
+<div class="syntax">
+<p>SPSSINC MERGE TABLES COMMAND = &ldquo;<em>command syntax to execute</em>&rdquo;<br/>
+MATCHLABEL=&ldquo;<em>label where attaching</em>&rdquo;<br/>
+MODE=MERGE<sup>&#42;&#42;</sup> or REPLACE<br/>
+ROWFUNCTION=&ldquo;<em>row merging function</em>&rdquo;<br/>
+COLFUNCTION=&ldquo;<em>column merging function</em>&rdquo;<br/>
+PRIROWLEVELS=<em>list-of-numbers</em><br/>
+PRICOLLEVELS=<em>list-of-numbers</em><br/>
+SECROWLEVELS=<em>list-of-numbers</em><br/>
+SECCOLLEVELS=<em>list-of-numbers</em><br/>
+STANDARDFUNCTIONS=YES<sup>&#42;&#42;</sup> or NO<br/>
+OMITSTATISTICSLEVEL=YES or NO<sup>&#42;&#42;</sup><br/>
+TABLES= primary<sup>&#42;</sup> secondary<sup>&#42;</sup>
+where these are either absolute table numbers or OMS table subtypes<br/>
+ATTACH=COLUMNS<sup>&#42;&#42;</sup> or ROWS</p>
+
+<p>/OPTIONS HIDE=YES<sup>&#42;&#42;</sup> or NO<br/>
+APPENDTITLE=YES<sup>&#42;&#42;</sup> or NO<br/>
+APPENDCAPTION=YES<sup>&#42;&#42;</sup> or NO<br/>
+HALIGN=LEFT or CENTER or RIGHT<sup>&#42;&#42;</sup><br/>
+ADDLABELLEAF=YES<sup>&#42;&#42;</sup> or NO<br/>
+ADDOPPOSITE=YES or NO<sup>&#42;&#42;</sup><br/>
+ADJUSTVERTLABELALIGN=YES<sup>&#42;&#42;</sup> or NO</br>
+SEPARATOR=&ldquo;<em>text</em>&rdquo;<br/>
+EXTRASEP=<em>number</em><br/>
+LAYERFOOTNOTE=&ldquo;<em>text</em>&rdquo; PRINTLEVELS=YES or NO<sup>&#42;&#42;</sup></p>
+
+<p>/HELP</p>
+
+<p><sup>&#42;</sup> Required<br/>
+<sup>&#42;&#42;</sup> Default</p>
+</div>
+<p>SPSSINC MERGE TABLES /HELP prints this help and does nothing else.</p>
+
+<p>Example: Merge the CTABLES column means table into the main table</p>
+
+<pre class="example"><code>SPSSINC MERGE TABLES command=
+&quot;CTABLES  /TABLE year [C][COUNT] BY origin [C]  /COMPARETEST TYPE=PROP&quot;
+mode=merge.
+</code></pre>
+
+<p>This example merges the CTABLES column means table into the main table based
+on the column numbers using the supplied colfuncbynumber function to define
+the columns to match.</p>
+
+<pre class="example"><code>SPSSINC MERGE TABLES MATCHLABEL=&quot;Mean&quot; ATTACH=COLUMNS
+MODE=MERGE COLFUNCTION=&quot;SPSSINC_MERGE_TABLES.colfuncbynumber&quot; 
+/OPTIONS HIDE=YES APPENDTITLE=YES APPENDCAPTION=YES ADDLABELLEAF=YES
+HALIGN=RIGHT SEPARATOR=&quot;\n&quot;.
+</code></pre>
+
+<p>The next example merges two correlation tables together.</p>
+
+<pre class="example"><code>CORRELATIONS
+/VARIABLES=mpg engine horse weight
+/PRINT=TWOTAIL SIG
+   /MISSING=PAIRWISE.
+NONPAR CORR
+/VARIABLES=mpg engine horse weight
+/PRINT=KENDALL TWOTAIL SIG
+/MISSING=PAIRWISE.
+
+SPSSINC MERGE TABLES ATTACH=COLUMNS
+MODE=MERGE PRIROWLEVELS=1 3 PRICOLLEVELS=1 STANDARDFUNCTIONS=NO 
+ECROWLEVELS=3 5 SECCOLLEVELS=1 
+TABLES=&quot;&#39;Correlations&#39;&quot; &quot;&#39;Correlations&#39;&quot;
+/OPTIONS HIDE=YES APPENDTITLE=YES APPENDCAPTION=YES
+HALIGN=RIGHT SEPARATOR=&quot;\n&quot; PRINTLEVELS=NO.
+</code></pre>
+
+<p><strong>COMMAND</strong> is an optional command such as CTABLES to run before applying the merge.
+If it is long, it can be written as
+<code>COMMAND = &quot;part1&quot;  &quot;part2&quot; ...</code>  (Note that the literals are NOT joined with +).</p>
+
+<p><strong>MATCHLABEL</strong> specifies the label for the point where the merged table is attached.  It is the
+lowest level section.  Case matters.  It defaults to &ldquo;Count&rdquo;.  Note that it is not always visible
+e.g., <code>CTABLES /SLABELS VISIBLE=NO.</code></p>
+
+<p><strong>MODE</strong> can be MERGE, the default, which means the merged table cell value is appended
+to the primary table, or REPLACE, to replace the primary cell value with the merged value.</p>
+
+<p>The four <strong>LEVELS</strong> keywords can be used to select which levels of the respective labels should
+be used in matching the cells.  Each specification is a list of level numbers, starting with 0.
+Use <strong>PRINTLEVELS</strong>=YES to determine what the levels are in the particular tables as many tables
+have hidden label levels.</p>
+
+<p><strong>ROWFUNCTION</strong> and <strong>COLFUNCTION</strong> can be specified as module.function names to specify
+the Python function that will be used to determine the join logic.  See details in the 
+dialog box help and comments below.
+The default rowfunction and colfunction attach the merge points to columns.</p>
+
+<p><strong>STANDARDFUNCTIONS</strong> determines whether the standard functions are used when a
+ROW or COL function is not specified explicitly.</p>
+
+<p><code>rowfuncbynumber</code> and <code>colfuncbynumber</code> are provided in this file for joining tables strictly
+by the row and/or column numbers.</p>
+
+<p><strong>TABLES</strong>= <em>number number</em>
+or
+TABLES = &ldquo;oms subtype&rdquo; &ldquo;oms subtype&rdquo;<br/>
+can be used to select particular tables.  numbers are for the absolute item number in the Viewer.
+&ldquo;oms subtype&rdquo; selects based on the most recent instances of a table of the specified type.
+The first table in the pair is the primary table.</p>
+
+<p>Specify <strong>ATTACH</strong>=ROWS to attach to rows, instead of columns.  For CTABLES,  the default functions
+correspond to /SLABELS POSITION=COLUMN while ATTACH=ROWS corresponds
+to /SLABELS POSITION=ROW.</p>
+
+<h2>OPTIONS</h2>
+<p>By default, the secondary table is hidden after the merge.  <strong>HIDE</strong>=FALSE or NO prevents this.
+<strong>APPENDTITLE</strong> and <strong>APPENDCAPTION</strong> can be set to FALSE or NO to prevent the automatic
+addition of title and caption information to the primary table.</p>
+
+<p><strong>HALIGN</strong> can be LEFT, the default, CENTER, or RIGHT to set the horizontal alignment of
+the cell after the merge.</p>
+
+<p>By default, the merged and primary contents are separated by a newline. <strong>SEPARATOR</strong>
+can set a different separator character or characters such as a blank.</p>
+
+<p><strong>EXTRASEP</strong> can specify that multiple copies of the separator sequence be used.
+These two parameters have no effect if MODE=REPLACE.</p>
+
+<p><strong>ADDLABELLEAF</strong> specifies whether the leaf element of the secondary
+table is appended to the corresponding primary table label</p>
+
+<p><strong>ADDOPPOSITE</strong> specifies whether the leaf element is added in the
+opposite dimension of the table.  For example, if adding the CTABLES significance table
+to the primary table but with statistics in the rows, this causes the letters to be
+added to the column dimension.  It is ignored if ADDLABELLEAF is NO.</p>
+
+<p><strong>ADJUSTLABELVERTLABELALIGN</strong> determines how the column labels
+are vertically aligned if ADDLABELLEAF is YES.  By default, the labels are
+top aligned.  Specify NO to leave the alignment as it was.</p>
+
+<p>Tables with layers are not supported in this function.  Only the top layer is merged.  In this
+case, a footnote to this effect is automatically added.  Specify LAYERFOOTNOTE=&ldquo;text&rdquo;
+to provide different text (or &ldquo;&rdquo; to suppress it altogether).</p>
+
+<h2>Custom Merging Functions</h2>
+
+<p>The following comments explain the main functions and how to write
+custom merging functions.
+There are three main functions: mergeLatest, mergeSelected, and
+tmerge.  All have the same functionality but differ in how the participating tables are specified.</p>
+
+<p>The functions stdrowfunc and stdcolfunc may also be useful if partially overriding the row and column
+matching rules.</p>
+
+<p>Example usage</p>
+
+<pre class="example"><code>begin program.
+import tables
+
+cmd=\
+r&#39;&#39;&#39;CTABLES
+    /TABLE sex &gt; race [COUNT  COLPCT.COUNT] BY region
+    /TITLES TITLE=&#39;This is the Main Table&#39;
+    /COMPARETEST TYPE=PROP ALPHA=0.05 ADJUST=BONFERRONI ORIGIN=COLUMN.
+&#39;&#39;&#39;
+SPSSINC_MERGE_TABLES.mergeLatest(cmd, label=&#39;Count&#39;)
+end program.
+</code></pre>
+
+<p>This example runs a Ctables command and merges the last table in the Viewer, which has the signifcance tests, into the
+main table, which has count and percent statistics in the columns.</p>
+
+<p>The next example is similar but has the statistics in the rows.  This requires custom rowfunc and colfunc functions.
+These functions determine the definition of the join between the two tables.  The custom rowfunc ensures that the rows
+labeled Count in the main table match the corresponding rows in the significance table by removing the &ldquo;Count&rdquo; element of the
+label, but they leave the other statistics labels unchanged to ensure that those do not join.</p>
+
+<p>Secondly,  the colfunc function, when being applied to the test table &ndash; othertable is True &ndash; return the column heading without
+the (A), (B) etc term ensuring that the columns join on the rest of the heading.  But on the main table, the entire column heading
+is returned, because there is no statistic name in it (because that label occurs in the rows for this layout).</p>
+
+<pre class="example"><code>cmd=\
+r&#39;&#39;&#39;CTABLES
+    /TABLE sex &gt; race [COUNT  COLPCT.COUNT] BY region
+    /SLABELS POSITION=row
+    /TITLES TITLE=&#39;This is the Main Table&#39;
+    /COMPARETEST TYPE=PROP ALPHA=0.05 ADJUST=BONFERRONI ORIGIN=COLUMN.&#39;&#39;&#39;
+
+def rowfunc(tup, othertable, number):
+    if tup[-1] == &#39;Count&#39;:
+        return tup[0:-1]
+    else:
+        return tup
+
+def colfunc(tup, othertable, number):
+    if othertable:
+        return tup[:-1]
+    else:
+        return tup
+
+SPSSINC_MERGE_TABLES.mergeLatest(cmd, rowfunc = rowfunc, colfunc=colfunc)
+</code></pre>
+
+<p>This example merges two tables with the same structure but different statistics.</p>
+
+<pre class="example"><code>cmd=\
+r&#39;&#39;&#39;CTABLES
+    /TABLE region BY sex &gt; educ [MEAN F10.3] by race.
+CTABLES
+    /TABLE region BY sex &gt; educ [SEMEAN &#39;SE Mean&#39; F10.3].
+&#39;&#39;&#39;
+SPSSINC_MERGE_TABLES.mergeLatest(cmd, label=&#39;Mean&#39;, mode=&#39;merge&#39;)
+</code></pre>
+
+<p>This example merges two tables with different statistics but only for males in the West region</p>
+
+<pre class="example"><code>cmd=\
+r&#39;&#39;&#39;CTABLES
+    /TABLE region BY sex &gt; educ [MEAN F10.3] by race.
+CTABLES
+    #/TABLE region BY sex &gt; educ [SEMEAN &#39;SE Mean&#39; F10.3].
+&#39;&#39;&#39;
+def rowfunc(tup, othertable):
+    if othertable and tup[-1] != &quot;West&quot;:
+        return None
+    else:
+        return SPSSINC_MERGE_TABLES.stdrowfunc(tup, othertable)
+
+def colfunc(tup, othertable):
+    if othertable and tup[2] != &quot;Male&quot;:
+        return None
+    else:
+        return SPSSINC_MERGE_TABLES.stdcolfunc(tup, othertable)
+
+SPSSINC_MERGE_TABLES.mergeLatest(cmd, label=&#39;Mean&#39;, mode=&#39;merge&#39;, rowfunc = rowfunc, colfunc=colfunc)
+</code></pre>
+
+</body>
+
+</html>
+
