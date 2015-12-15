@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Merge Two Viewer Tables</title>
+  <style type="text/css">
+
+  <!-- 
+
+  H1 {font-weight:bold; color:#006699; font-size:125%; }
+  H2 {font-weight:bold; color:#006699; font-size:110%; }
+  TABLE {font-size:100%;}
+
+  /* paragraph tags */
+  .step {text-indent: -1.3em; margin-left:1.3em; margin-top: 0px;}
+  .menuselection {margin-left:10px}
+  .bullet {list-style-type: disc;margin-top:12px; margin-left:36px; text-indent:-1em; }
+  .codeblock {background-color: #ffffe6; display:block; margin-left:5px; padding:5px;}
+
+  /* inline tags */
+  .screen {font-weight:bold; color:#408080}                       /*** used refer to on-screen text ***/
+  .name {font-style: italic}                                                       /*** used to tag names, such as variable names, file names, and so forth ***/
+  .runinhead {font-weight: bold} 
+  .superscript {vertical-align:super; font-size:80%}
+  .subscript {vertical-align:sub; font-size:80%}
+
+
+  --> 
+  </style>
+</head>
+
+<body>
+  <h1>Merge Two Viewer Tables</h1>This procedure combines cell
+  values from one table with values in another table. The supplying
+  table is known as the secondary table, and the receiving one as
+  the primary table. The most common usage is to combine proportion
+  or means test tables from Custom Tables with the main table, but
+  many other kinds of merges are possible.
+
+  <p>Cells for the combination are joined using the row and column
+  labels of the two tables. These may be combined with a name at
+  the innermost level such as "Count" to indicate where the values
+  should go in cases where the same category label may have more
+  than one statistic under it. Some kinds of tables cannot be
+  merged. Some experimentation may be necessary.</p>
+
+  <p class="bullet">•&nbsp;Footnotes from the secondary table are
+  not carried over to the primary table.</p>
+
+  <p><span class="runinhead">Attachment Point.</span> Indicate the
+  dimension containing the primary table label that defines where
+  the secondary table values will be attached, if any.</p>
+
+  <p><span class="runinhead">Label in Primary Table.</span>
+  Optionally specify the lowest level label where the secondary
+  values should be inserted. For example, a table might have labels
+  "Count" and "Percent" under each variable category. This control
+  provides a way to choose which to use.</p>
+
+  <p class="bullet">•&nbsp;Make the field empty if there is no such
+  repeated label and the category values themselves should be used
+  alone to define the join. Be aware, however, that sometimes the
+  label is still present but hidden and needs to be specified. This
+  is the case, in particular, when you choose to Hide a statistics
+  label with Custom Tables.</p>
+
+  <p><span class="runinhead">Primary and Secondary Table
+  Type.</span> By default, this procedure merges the last two
+  tables in the Viewer, treating the last one as the secondary
+  table. Enter the OMS table subtypes to specify other tables. You
+  can alternatively enter a pair of absolute Viewer item numbers.
+  The Viewer root item is number 0.</p>
+
+  <p class="bullet">•&nbsp;You must enter both subtypes or
+  neither.</p>
+
+  <p class="bullet">•&nbsp;To find the table subtype, right click
+  on the outline title of an example, or refer to the OMS
+  Identifiers dialog on the <span class="screen">Utilities</span>
+  menu.</p>
+
+  <p class="bullet">•&nbsp;The search for the tables works
+  backwards from the end of the Viewer.</p>
+
+  <p><span class="runinhead">Merge Mode.</span> Select <span class=
+  "screen">Append secondary cell value to primary</span> to append
+  the secondary values to the primaries. Select <span class=
+  "screen">Replace primary cell value by secondary</span> to
+  replace the primary table value with the secondary value. If no
+  secondary value is available, the primary value is retained.</p>
+
+  <p><span class="runinhead">Hide secondary table after
+  merge.</span> Check this box to make the secondary table
+  invisible after the merge.</p>
+
+  <p><span class="runinhead">Append secondary table title to
+  primary table.</span> Check this box to add the secondary table
+  title to the end of the primary table title.</p>
+
+  <p><span class="runinhead">Append secondary caption
+  information.</span> Check this box to add the caption from the
+  secondary table to the primary table caption. (This choice is not
+  operational in some IBM® SPSS® Statistics versions.)</p>
+
+  <p><span class="runinhead">Append secondary label.</span> Check
+  this box to add the label from the secondary table to the
+  corresponding primary column. It will include the separator
+  character(s) used in the data cells.</p>
+
+  <p><span class="runinhead">Suppress layer warning
+  footnote.</span> This procedure only operates on the top layer of
+  a table. If a table has additional layers, a warning footnote is
+  added. Check this box to suppress the footnote.</p>
+
+  <p><span class="runinhead">Print label levels for first row and
+  column.</span> Check this box to display all the label levels of
+  both tables before and after any transformation. Since tables
+  often have hidden levels, this information is helpful in
+  specifying the way the labels in the two tables are matched
+  up.</p>
+
+  <p><span class="runinhead">Horizontal Cell Alignment After
+  Merge.</span> Use these controls to determine how the cell values
+  are aligned after they are combined.</p>
+
+  <p><span class="runinhead">Custom Separator Characters.</span>
+  Enter one or more characters that should separate the primary and
+  secondary values in the cell. Use "\n" to indicate that the
+  values should be on separate lines.</p>
+
+  <p><span class="runinhead">Joins.</span> Click the The
+  <span class="screen">Joins</span> button to specify details of
+  how labels are joined.</p>
+
+  <h2>Customize Label Join Rules Subdialog</h2>Pivot table cells
+  are matched up according to the following rules applied to the
+  row and column labels.
+
+  <p class="bullet">•&nbsp; Labels are filtered by level
+  selections. You can select the levels that are used for matching
+  up cells by entering one or more numbers in the primary and
+  secondary row and column controls. For example, if a table
+  dimension has a set of labels<br>
+  <span class="code">A B C</span><br>
+  level 0 is A, level 1 is B, and level 2 is C. Entering 1,2 in the
+  control causes the label set to be transformed to<br>
+  <span class="code">B C</span><br>
+  before attempting to match it with the label set in the
+  corresponding dimension of the other table. You may need
+  different selections in the two tables if the structure
+  differs.</p>
+
+  <p class="bullet">•&nbsp; The label set transformation uses the
+  order in which the numbers are entered. So 1 2 and 2 1 produce
+  different results.</p>
+
+  <p class="bullet">•&nbsp; Use the <span class="screen">Print
+  label levels for first row and column</span> checkbox on the main
+  dialog to reveal the full structure of the tables.</p>
+
+  <p class="bullet">•&nbsp;After any level filtering, user-written
+  or standard Python functions can be called to transform the
+  labels further. For example, one table might have a label
+  <span class="screen">"Pearson Correlation"</span> while the
+  corresponding label in the other table might be <span class=
+  "screen">"Correlation Coefficient"</span>. A custom function
+  could transform one of the labels so that the resulting sets
+  match.</p>
+
+  <p class="bullet">•&nbsp;Custom Tables may have a hidden level
+  named "Statistics". By default, this level is omitted when
+  merging significance tables into the main table. It is possible
+  to override this in syntax.</p>
+
+  <p class="bullet">•&nbsp;If the function returns None, that cell
+  will not be merged.</p>
+
+  <p class="bullet">•&nbsp;What the standard functions do depends
+  on the <span class="screen">Attachment Point Dimension</span>
+  setting. For <span class="screen">Column</span>, the row function
+  does nothing, and the column function deletes the last level of
+  the column label. For <span class="screen">Row</span> the row
+  function deletes the last level of the label if it matches the
+  attachment point label. The column function deletes the last
+  level in the secondary table but does nothing in the primary
+  table.</p>
+
+  <p class="bullet">•&nbsp;The standard functions are designed to
+  work with the Custom Tables main table and Column Proportions or
+  Column Means test tables. It is generally not necesary to use
+  level filtering with these tables. The attachment point label on
+  the main table controls where to attach the secondary value when
+  the main table has more than one statistic under each category.
+  You may want to suppress the standard functions for other types
+  of merges.</p>
+
+  <p><span class="runinhead">Type of Join Function.</span> Choose
+  the standard set of functions or a custom set.</p>
+
+  <p class="bullet">•&nbsp;If you choose a custom set, neither the
+  standard row nor the standard column function will be applied.
+  Only the custom row or column functions named, if any, will be
+  applied. It is not necessary to supply both row and column
+  functions. Thus, if you choose Custom and enter no function
+  names, no functions are applied.</p>
+
+  <p><span class="runinhead">Custom Row or Column Function.</span>
+  Enter the function names in the form<br>
+  module.function<br>
+  where module is the Python module name where the function is
+  defined. These functions are only used if the second radio button
+  is set.</p>
+
+  <h2>Additional Features</h2>
+
+  <p>This dialog generates syntax for the SPSSINC MERGE TABLES
+  extension command. To display help for this command, run the
+  following syntax:</p>
+
+  <p class="codeblock">SPSSINC MERGE TABLES /HELP.</p>
+
+  <p>Additional features are available in syntax for other ways to
+  select the primary and secondary tables. For complex tables, it
+  may be necessary to write custom rowfunc and colfunc functions
+  for preprocessing the row and column labels prior to combining.
+  It is also possible to merge tables based on the row or column
+  numbers rather than label text. SPSSINC_MERGE_TABLES contains
+  example functions named rowfuncbynumber and colfuncbynumber that
+  illustrate this. The SPSSINC_MERGE_TABLES.py module contains
+  further information on using custom merge functions.</p>
+
+  <h2>Requirements</h2>
+
+  <p>This dialog requires the Integration Plug-In for Python and
+  the SPSSINC MERGE TABLES extension command. For IBM SPSS
+  Statistics 19 and higher, the Plug-In and the extension command
+  are installed with the Essentials for Python package. For more
+  information, see How to Get Integration Plug-Ins, under Core
+  System &gt; Frequently Asked Questions in the IBM SPSS Statistics
+  Help system. If you downloaded SPSSINC MERGE TABLES from the SPSS
+  Community, then please follow the instructions in the associated
+  readme file.</p><br>
+  <hr>
+
+  <p style="font-size:80%;">
+  © Copyright IBM Corp. 1989, 2013</p>
+</body>
+</html>
