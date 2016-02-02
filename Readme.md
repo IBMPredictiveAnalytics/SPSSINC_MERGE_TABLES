@@ -1,11 +1,13 @@
 # SPSSINC MERGE TABLES
-## Merge the contents of one pivot table in the Viewer into anot
- This procedure combines cell values from one table with v  alues in another table. The most common usage is to combine proportio  n or means test tables from Custom Tables with the main table, but ma  ny other kinds of merges are possible.
+## Merge the contents of one pivot table in the Viewer into another
+ This procedure combines cell values from one table with values in another table. The most common usage is to combine proportion or means test tables from Custom Tables with the main table, but many other kinds of merges are possible.
 
 ---
 Requirements
 ----
-- IBM SPSS Statistics 18 or later
+- IBM SPSS Statistics 18 or later and the corresponding IBM SPSS Statistics-Integration Plug-in for Python.
+
+Note: See also the STATS TABLE CALC extension.
 
 ---
 Installation intructions
