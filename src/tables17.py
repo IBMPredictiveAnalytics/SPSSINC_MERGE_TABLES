@@ -3,13 +3,13 @@
 # *
 # * IBM SPSS Products: Statistics Common
 # *
-# * (C) Copyright IBM Corp. 1989, 2011
+# * (C) Copyright IBM Corp. 1989, 2020
 # *
 # * US Government Users Restricted Rights - Use, duplication or disclosure
 # * restricted by GSA ADP Schedule Contract with IBM Corp. 
 # ************************************************************************/
 
-from __future__ import with_statement
+
 
 r"""Part 1:Functions to merge similar pivot tables;  Part2: Functions to censor table cells based on associated statistics."""
 
@@ -158,6 +158,7 @@ __version__=  '2.3.4'
 
 
 import spss
+import operator
 if not int(spss.GetDefaultPlugInVersion()[4:6]) >= 17:
 	raise ImportError("This module requires at least SPSS Statistics 17")
 import SpssClient, sys, time, re
@@ -312,7 +313,7 @@ def mergeSelected(*args, **kwds):
 				tablepair.insert(0, itemkt)
 			itemkt-= 1
 		if len(tablepair) != 2:
-			raise ValueError, "At least two table numbers must be specified."
+			raise ValueError("At least two table numbers must be specified.")
 		tmerge(desout, tablepair[0], tablepair[1], *args, **kwds)
 
 def tmerge(items, main, other, hide=True, label=None, mode='merge', rowfunc=None, colfunc=None,
@@ -343,7 +344,7 @@ def tmerge(items, main, other, hide=True, label=None, mode='merge', rowfunc=None
 		attach, label, printlevels, standardfunctions)
 	mode = mode.lower()
 	if not mode in ['merge','replace']:
-		raise ValueError, "mode must be merge or replace"
+		raise ValueError("mode must be merge or replace")
 
 	with ClientSession():
 		#objItems = desviewer.GetOutputItems()
@@ -351,7 +352,7 @@ def tmerge(items, main, other, hide=True, label=None, mode='merge', rowfunc=None
 		main = objItems.GetItemAt(main)
 		other = objItems.GetItemAt(other)
 		if main.GetType()  != SpssClient.OutputItemType.PIVOT or other.GetType() != SpssClient.OutputItemType.PIVOT:
-			raise ValueError, "A specified item is not a pivot table or does not exist."
+			raise ValueError("A specified item is not a pivot table or does not exist.")
 		if omitstatisticslevel is None:
 			if main.GetSubType() == "Custom Table" and	other.GetSubType() in ["Comparisons of Proportions", "Comparisons of Means"]:
 				omitstatistics = True
@@ -496,23 +497,23 @@ def settbl(pt, rowlabels, collabels, datacells, tbldict, label, rowfunc, colfunc
 			# Since the merge direction is not known, check both row and column for statistics label.  This could be fooled.
 			if otherval is not None:
 				if (label is None or collabeltup[-1].upper() == label.upper() or rowlabeltup[-1].upper() == label.upper()) \
-				   and not unicode(otherval).isspace():
+				   and not str(otherval).isspace():
 					
 					dataval = datacells.GetValueAt(i,j)
 					if dataval != "" or not spssverLt1702:  # versions prior to 17.0.2 cannot handle insertions in empty cells
 						if mergemode:
-							newval = fmtcell(datacells, i, j) + separator + unicode(otherval) + extrasep * separator
+							newval = fmtcell(datacells, i, j) + separator + str(otherval) + extrasep * separator
 							# percent formats are insisting on extra trailing %
 							try:
 								f = datacells.GetNumericFormatAt(i,j)
-								if f == u"##.#%":
-									datacells.SetNumericFormatAt(i,j, u"#.#")
+								if f == "##.#%":
+									datacells.SetNumericFormatAt(i,j, "#.#")
 							except:
 								pass
 							datacells.SetValueAt(i,j, " " + newval)
 							datacells.SetHAlignAt(i ,j,halign)  # right align cell
 						else:
-							if isinstance(otherval, basestring) and not isinstance(datacells.GetValueAt(i,j), basestring):
+							if isinstance(otherval, str) and not isinstance(datacells.GetValueAt(i,j), str):
 								datacells.SetHAlignAt(i, j, halign)  # right align cell
 							datacells.SetValueAt(i, j, otherval)   # keep target table formatting (mostly).
 	if mergemode and "\n" in separator:
@@ -569,7 +570,7 @@ def stdrowfunc(tup,othertable):
 	othertable is True if the function was called while processing the "other" table
 	and False if processing the main table."""
 	if debug:
-		print "row:", (othertable and "other:" or "main:"), tup
+		print(("row:", (othertable and "other:" or "main:"), tup))
 	if omitstatistics:
 		tup = tuple([item for item in tup if item != "Statistics"])		
 	return tup
@@ -578,7 +579,7 @@ def stdcolfunc(tup, othertable):
 	"""tup is the tuple of column labels for the current column.  By default it is passed back with the
 	last item deleted.  See additional comments under rowfunc"""
 	if debug:
-		print "col:", (othertable and "other:" or "main:"), tup
+		print(("col:", (othertable and "other:" or "main:"), tup))
 	if omitstatistics:
 		tup = tuple([item for item in tup if item != "Statistics"])
 	return tup[:-1]
@@ -663,10 +664,10 @@ def buildfuncs(rowfunc, colfunc, prirowlevels, pricollevels, secrowlevels, secco
 		if dbglist[index]:
 			if state == 1:
 				dbglist[index]=False
-			print "\nTable Label Levels of First Cell: %s" % dbglabels[index]
-			print ["Before Transformation", "After transformation"][state]
+			print(("\nTable Label Levels of First Cell: %s" % dbglabels[index]))
+			print((["Before Transformation", "After transformation"][state]))
 			for i, lbl in enumerate(tup):
-				print i, lbl
+				print((i, lbl))
 			
 	return (rowfuncwrap, colfuncwrap)
 	
@@ -738,7 +739,7 @@ def censorLatest(cmd=None, desout=None, tablenum=None, critfield='Count', subtyp
 						tablenum = itemkt
 				itemkt-= 1
 		if not tablenum:
-			raise ValueError, "No table found to process."
+			raise ValueError("No table found to process.")
 
 		censorkt = tcensor(items, tablenum, critfield, critvalue, symbol, neighborlist, direction, testtype,
 						   appendcaption=appendcaption, othercaption=othercaption, hidecrit=hidecrit)
@@ -752,7 +753,7 @@ def tcensor(objItems, main, critfield='Count',
 	###objItems = desviewer.GetOutputItems()
 	main = objItems.GetItemAt(main)
 	if main.GetType() != SpssClient.OutputItemType.PIVOT:
-		raise ValueError, "A specified item is not a pivot table or does not exist."
+		raise ValueError("A specified item is not a pivot table or does not exist.")
 
 	# create criterion function
 	try:
@@ -770,7 +771,7 @@ def tcensor(objItems, main, critfield='Count',
 		elif ttype == 6 or olist == 7:
 			olist = [True, False, True]
 	except:
-		raise ValueError, "Invalid comparison type: " + testtype
+		raise ValueError("Invalid comparison type: " + testtype)
 
 	def crittest(value):
 		"""return whether value meets the criterion test.
@@ -778,7 +779,7 @@ def tcensor(objItems, main, critfield='Count',
 	    Tries to handle locale formatted and decorated strings via floatex function"""
 
 		try:
-			c = cmp(abs(floatex(value)), critvalue)
+			c = operator.eq(abs(floatex(value)), critvalue)
 			return olist[c+1]
 		except:
 			return False
@@ -796,12 +797,12 @@ def tcensor(objItems, main, critfield='Count',
 		elif direction == 'column':
 			lblarray = PivotTable.RowLabelArray()			
 		else:
-			raise ValueError, "direction must be 'row' or 'column'"
+			raise ValueError("direction must be 'row' or 'column'")
 		censorkt = censortbl(lblarray, PivotTable, critfield, crittest, symbol, 
 							 neighborlist, direction, hidecrit)
 		if appendcaption:
 			if othercaption is None:
-				othercaption = "Number of values censored because of " + critfield + ": " + unicode(censorkt)
+				othercaption = "Number of values censored because of " + critfield + ": " + str(censorkt)
 			PivotTable.SetCaptionText(PivotTable.GetCaptionText() + "\n" + othercaption)
 		PivotTable.Autofit()
 	finally:
@@ -853,11 +854,11 @@ def censortbl(labels, PivotTable, critfield, crittest, symbol, neighborlist, dir
 					if hidecrit and facenumber == 0:   # only need to hide once for all the layers
 						hide(labels, rows, i, lbllimit)
 	except AttributeError:
-		print "Error in censortbl:", sys.exc_info()[0]
+		print(("Error in censortbl:", sys.exc_info()[0]))
 		raise
 	if not foundcritfield:
-		print  "Warning: The criterion field was not found in the table: " + critfield
-		raise AttributeError, "The criterion field was not found in the table: " + critfield
+		print(("Warning: The criterion field was not found in the table: " + critfield))
+		raise AttributeError("The criterion field was not found in the table: " + critfield)
 
 	return censorkt
 

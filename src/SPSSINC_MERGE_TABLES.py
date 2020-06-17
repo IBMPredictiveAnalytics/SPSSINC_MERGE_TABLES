@@ -1,10 +1,16 @@
+#/***********************************************************************
+# * Licensed Materials - Property of IBM 
+# *
+# * IBM SPSS Products: Statistics Common
+# *
+# * (C) Copyright IBM Corp. 1989, 2020
+# *
+# * US Government Users Restricted Rights - Use, duplication or disclosure
+# * restricted by GSA ADP Schedule Contract with IBM Corp. 
+# ************************************************************************/
 # extension command implementation for MERGE LATEST command
-from __future__ import with_statement
 
-#Licensed Materials - Property of IBM
-#IBM SPSS Products: Statistics General
-#(c) Copyright IBM Corp. 2009, 2015
-#US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
 __author__ = "SPSS, JKP"
 __version__ = "1.3.3"
 
@@ -229,7 +235,7 @@ HALIGN=RIGHT SEPARATOR="\n" PRINTLEVELS=NO.
 
 def Run(args):
     """Execute the SPSS MERGE TABLES command"""
-    args = args[args.keys()[0]]
+    args = args[list(args.keys())[0]]
     ###print args   #debug
 
     oobj = Syntax([
@@ -284,7 +290,7 @@ def Run(args):
     #except:
         #pass
     # A HELP subcommand overrides all else
-    if args.has_key("HELP"):
+    if "HELP" in args:
         #print helptext
         helper()
     else:
@@ -475,7 +481,7 @@ def mergeSelected(*args, **kwds):
                 tablepair.insert(0, itemkt)
             itemkt-= 1
         if len(tablepair) != 2:
-            raise ValueError, _("At least two table numbers must be specified.")
+            raise ValueError(_("At least two table numbers must be specified."))
         tmerge(desout, tablepair[0], tablepair[1], *args, **kwds)
 
 def tmerge(items, main, other, hide=True, label=None, mode='merge', rowfunc=None, colfunc=None,
@@ -507,7 +513,7 @@ def tmerge(items, main, other, hide=True, label=None, mode='merge', rowfunc=None
                                   attach, label, printlevels, standardfunctions)
     mode = mode.lower()
     if not mode in ['merge','replace']:
-        raise ValueError, _("mode must be merge or replace")
+        raise ValueError(_("mode must be merge or replace"))
 
     time.sleep(1.0)
     with ClientSession():
@@ -516,7 +522,7 @@ def tmerge(items, main, other, hide=True, label=None, mode='merge', rowfunc=None
         main = objItems.GetItemAt(main)
         other = objItems.GetItemAt(other)
         if main.GetType()  != SpssClient.OutputItemType.PIVOT or other.GetType() != SpssClient.OutputItemType.PIVOT:
-            raise ValueError, _("A specified item is not a pivot table or does not exist.")
+            raise ValueError(_("A specified item is not a pivot table or does not exist."))
         if omitstatisticslevel is None:
             omitstatistics = main.GetSubType() == "Custom Table" and	\
                 other.GetSubType() in ["Comparisons of Proportions", "Comparisons of Means"]            
@@ -666,23 +672,23 @@ def settbl(pt, rowlabels, collabels, datacells, tbldict, label, rowfunc, colfunc
             # Since the merge direction is not known, check both row and column for statistics label.  This could be fooled.
             if otherval is not None:
                 if (label is None or collabeltup[-1].upper() == label.upper() or rowlabeltup[-1].upper() == label.upper()) \
-                   and not unicode(otherval).isspace():
+                   and not str(otherval).isspace():
 
                     dataval = datacells.GetValueAt(i,j)
                     if dataval != "" or not spssverLt1702:  # versions prior to 17.0.2 cannot handle insertions in empty cells
                         if mergemode:
-                            newval = fmtcell(datacells, i, j) + separator + unicode(otherval) + extrasep * separator
+                            newval = fmtcell(datacells, i, j) + separator + str(otherval) + extrasep * separator
                             # percent formats are insisting on extra trailing %
                             try:
                                 f = datacells.GetNumericFormatAt(i,j)
-                                if f == u"##.#%":
-                                    datacells.SetNumericFormatAt(i,j, u"#.#")
+                                if f == "##.#%":
+                                    datacells.SetNumericFormatAt(i,j, "#.#")
                             except:
                                 pass
                             datacells.SetValueAt(i,j, " " + newval)
                             datacells.SetHAlignAt(i ,j,halign)  # right align cell
                         else:
-                            if isinstance(otherval, basestring) and not isinstance(datacells.GetValueAt(i,j), basestring):
+                            if isinstance(otherval, str) and not isinstance(datacells.GetValueAt(i,j), str):
                                 datacells.SetHAlignAt(i, j, halign)  # right align cell
                             datacells.SetValueAt(i, j, otherval)   # keep target table formatting (mostly).
     if mergemode and "\n" in separator:
@@ -741,7 +747,7 @@ def stdrowfunc(tup,othertable, number):
     othertable is True if the function was called while processing the "other" table
     and False if processing the main table."""
     if debug:
-        print "row:", (othertable and "other:" or "main:"), tup
+        print(("row:", (othertable and "other:" or "main:"), tup))
     if omitstatistics:
         tup = tuple([item for item in tup if item != _("Statistics")])
     return tup
@@ -750,7 +756,7 @@ def stdcolfunc(tup, othertable, number):
     """tup is the tuple of column labels for the current column.  By default it is passed back with the
     last item deleted.  See additional comments under rowfunc"""
     if debug:
-        print "col:", (othertable and "other:" or "main:"), tup
+        print(("col:", (othertable and "other:" or "main:"), tup))
     if omitstatistics:
         tup = tuple([item for item in tup if item != _("Statistics")])
     return tup[:-1]
@@ -835,10 +841,10 @@ def buildfuncs(rowfunc, colfunc, prirowlevels, pricollevels, secrowlevels, secco
         if dbglist[index]:
             if state == 1:
                 dbglist[index]=False
-            print "\nTable Label Levels of First Cell: %s" % dbglabels[index]
-            print ["Before Transformation", "After Transformation"][state]
+            print(("\nTable Label Levels of First Cell: %s" % dbglabels[index]))
+            print((["Before Transformation", "After Transformation"][state]))
             for i, lbl in enumerate(tup):
-                print i, lbl
+                print((i, lbl))
 
     return (rowfuncwrap, colfuncwrap)
 
@@ -887,7 +893,7 @@ def rowfuncbynumber(tup,othertable, number):
     
 
     if debug:
-        print "row:", (othertable and "other:" or "main:"), number, tup
+        print(("row:", (othertable and "other:" or "main:"), number, tup))
 
 
     tup = (str(number),)
@@ -900,7 +906,7 @@ def colfuncbynumber(tup, othertable, number):
     This version can be used to match just by column number.
     With multiple statistics you might need to adjust the number calculation, e.g., number % 2"""
     if debug:
-        print "col:", (othertable and "other:" or "main:"), tup
+        print(("col:", (othertable and "other:" or "main:"), tup))
 
     return (str(number),)
 
@@ -919,7 +925,7 @@ def helper():
     # webbrowser.open seems not to work well
     browser = webbrowser.get()
     if not browser.open_new(helpspec):
-        print("Help file not found:" + helpspec)
+        print(("Help file not found:" + helpspec))
 try:    #override
     from extension import helper
 except:
