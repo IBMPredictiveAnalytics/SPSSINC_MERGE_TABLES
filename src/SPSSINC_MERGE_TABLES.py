@@ -12,7 +12,7 @@
 
 
 __author__ = "SPSS, JKP"
-__version__ = "1.3.3"
+__version__ = "1.3.4"
 
 
 # 14-sep-2009 Add ADDLABELLEAF to syntax support
@@ -22,6 +22,7 @@ __version__ = "1.3.3"
 #    NOTE: this changes the interface to these functions.  User-written ones need to be updated.
 # 11-oct-2011 Catch up with Statistics change in escape interpretation - make \n show up as newline
 # 13-jan-2014 Add ADDOPPOSITE syntax
+# 01-sep-2021 Change custom function import code due to Python 3 change.
 
 import spss
 if not int(spss.GetDefaultPlugInVersion()[4:6]) >= 17:
@@ -29,6 +30,7 @@ if not int(spss.GetDefaultPlugInVersion()[4:6]) >= 17:
 import SpssClient, sys, time, re
 from extension import floatex
 from spssaux import GetSPSSVersion
+import importlib
 spssver = [int(i) for i in GetSPSSVersion().split('.')]
 spssverLt1702 = spssver[:-1] < [17,0,2]
 spssverLe1702 = spssver[:-1] <= [17,0,2]
@@ -36,7 +38,15 @@ spssverLe1702 = spssver[:-1] <= [17,0,2]
 global omitstatistics   # stores omitstatisticslevel value
 
 from extension import Template, Syntax, processcmd
-
+# debugging
+        # makes debug apply only to the current thread
+#try:
+    #import wingdbstub
+    #import threading
+    #wingdbstub.Ensure()
+    #wingdbstub.debugger.SetDebugThreads({threading.get_ident(): 1})
+#except:
+    #pass
 
 
 helptext = r"""SPSS MERGE TABLES [command = "command syntax to execute"]
@@ -275,20 +285,7 @@ def Run(args):
         def _(msg):
             return msg
 
-    ###debugging
-    #try:
-        #import wingdbstub
-        #if wingdbstub.debugger != None:
-            #import time
-            #wingdbstub.debugger.StopDebug()
-            #time.sleep(2)
-            #wingdbstub.debugger.StartDebug()
-        #import thread
-        #wingdbstub.debugger.SetDebugThreads({thread.get_ident(): 1}, default_policy=0)
-        ## for V19 use
-        ##    ###SpssClient._heartBeat(False)
-    #except:
-        #pass
+
     # A HELP subcommand overrides all else
     if "HELP" in args:
         #print helptext
@@ -329,9 +326,10 @@ def resolvestr(afunc):
         bfunc = afunc.split(".")
         if len(bfunc) != 2:
             raise ValueError(_("Function reference %s not valid") % afunc)
-        exec("from %s import %s as f" % (bfunc[0], bfunc[1]))
-        return f
-
+        #exec("from %s import %s as f" % (bfunc[0], bfunc[1]))
+        #return f
+        m = importlib.import_module(bfunc[0])
+        return getattr(m, bfunc[1])
 
 debug = False
 

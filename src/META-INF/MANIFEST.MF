@@ -10,7 +10,7 @@ Description: This procedure combines cell values from one table with v
  n or means test tables from Custom Tables with the main table, but ma
  ny other kinds of merges are possible.
 Author: IBM SPSS
-Version: 2.0.0
+Version: 2.0.1
 Product-Version: 24
 Date: 1/2/2014
 Product-Version-Maximum: 99
