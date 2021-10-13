@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Zwei Viewer-Tabellen zusammenführen</title>
+  <style type="text/css">
+
+  <!-- 
+
+  H1 {font-weight:bold; color:#006699; font-size:125%; }
+  H2 {font-weight:bold; color:#006699; font-size:110%; }
+  TABLE {font-size:100%;}
+
+  /* paragraph tags */
+  .step {text-indent: -1.3em; margin-left:1.3em; margin-top: 0px;}
+  .menuselection {margin-left:10px}
+  .bullet {list-style-type: disc;margin-top:12px; margin-left:36px; text-indent:-1em; }
+  .codeblock {background-color: #ffffe6; display:block; margin-left:5px; padding:5px;}
+
+  /* inline tags */
+  .screen {font-weight:bold; color:#408080}                       /*** used refer to on-screen text ***/
+  .name {font-style: italic}                                                       /*** used to tag names, such as variable names, file names, and so forth ***/
+  .runinhead {font-weight: bold} 
+  .superscript {vertical-align:super; font-size:80%}
+  .subscript {vertical-align:sub; font-size:80%}
+
+
+  --> 
+  </style>
+</head>
+
+<body>
+  <h1>Zwei Viewer-Tabellen zusammenführen</h1>Diese Prozedur kombiniert Zellenwerte aus einer Tabelle mit Werten in einer anderen Tabelle. Die Tabelle, die die Werte bereitstellt, wird als Sekundärtabelle bezeichnet. Die Tabelle, die die Werte erhält, wird als Primärtabelle bezeichnet. Der häufigste Verwendungszweck besteht darin, Testtabellen für Anteile oder Mittelwerte aus "Benutzerdefinierte Tabellen" mit der Haupttabelle zu kombinieren. Es sind jedoch noch zahlreiche weitere Arten von Zusammenführungen möglich.
+
+  <p>Die Zellen für die Kombination werden mithilfe der Zeilen- und Spaltenbeschriftungen der beiden Tabellen verknüpft. Diese Beschriftungen können mit einem Namen auf der innersten Ebene (z. B. "Anzahl") kombiniert werden, um anzugeben, wo die Werte eingeordnet werden sollen, wenn zu einer Kategoriebeschriftung mehrere Statistiken gehören. Einige Arten von Tabellen können nicht zusammengeführt werden. Möglicherweise müssen verschiedene Varianten ausprobiert werden.</p>
+
+  <p class="bullet">•&nbsp;Fußnoten aus der Sekundärtabelle werden nicht in die Primärtabelle übertragen.</p>
+
+  <p><span class="runinhead">Anfügepunkt.</span> Geben Sie die Dimension an, die die Beschriftung der Primärtabelle enthält, durch die die Stelle festgelegt wird, an der die Werte aus der Sekundärtabelle angefügt werden sollen.</p>
+
+  <p><span class="runinhead">Beschriftung in Primärtabelle leer lassen.</span>
+  Optional können Sie die Beschriftung der niedrigsten Ebene angeben, unter der die Sekundärwerte eingefügt werden sollen. Eine Tabelle kann beispielsweise die Beschriftungen "Anzahl" und "Prozent" unter jeder Variablenkategorie aufweisen. Mit diesem Steuerelement können Sie auswählen, welche davon verwendet werden soll.</p>
+
+  <p class="bullet">•&nbsp;Verwenden Sie ein leeres Feld, wenn keine mehrfach verwendete Beschriftung vorhanden ist und ausschließlich die Kategoriewerte selbst zur Definition der Verbindung verwendet werden sollen. Es kann jedoch vorkommen, dass die Beschriftung nur ausgeblendet ist und somit angegeben werden muss. Dies ist insbesondere dann der Fall, wenn Sie eine Statistikbeschriftung unter "Benutzerdefinierte Tabellen" ausblenden.</p>
+
+  <p><span class="runinhead">Typ der Primär- und Sekundärtabelle.</span> Standardmäßig werden mit dieser Prozedur die letzten beiden Tabellen im Viewer zusammengeführt, wobei die letzte als Sekundärtabelle behandelt wird. Geben Sie die OMS-Tabellenuntertypen ein, um andere Tabellen anzugeben. Alternativ können Sie zwei absolute Nummern von Viewer-Elementen eingeben.
+  Das Stammelement des Viewers hat die Nummer 0.</p>
+
+  <p class="bullet">•&nbsp;Sie müssen entweder beide Untertypen angeben oder keinen.</p>
+
+  <p class="bullet">•&nbsp;Klicken Sie mit der rechten Maustaste auf den Gliederungstitel eines Beispiels oder verwenden Sie das Dialogfeld "OMS-IDs" im Menü <span class="screen">Extras</span>, um den Tabellenuntertyp festzustellen.</p>
+
+  <p class="bullet">•&nbsp;Die Tabellen werden, ausgehend vom Ende des Viewers, rückwärts gesucht.</p>
+
+  <p><span class="runinhead">Zusammenführungsmodus.</span> Wählen Sie die Option <span class="screen">Wert der Sekundärzelle an Wert der Primärzelle anhängen</span> aus, um die Sekundärwerte an die Primärwerte anzuhängen. Wählen Sie die Option <span class="screen">Wert der Primärzelle durch Wert der Sekundärzelle ersetzen</span> aus, um den Wert der Primärtabelle durch den Sekundärwert zu ersetzen. Wenn kein Sekundärwert verfügbar ist, wird der Primärwert beibehalten.</p>
+
+  <p><span class="runinhead">Sekundärtabelle nach der Zusammenführung ausblenden</span> Wählen Sie dieses Kontrollkästchen aus, um die Sekundärtabelle nach der Zusammenführung auszublenden.</p>
+
+  <p><span class="runinhead">Titel der Sekundärtabelle an Primärtabelle anfügen.</span> Wählen Sie dieses Kontrollkästchen aus, um den Titel der Sekundärtabelle am Ende des Titels der Primärtabelle hinzuzufügen.</p>
+
+  <p><span class="runinhead">Sekundäre Titelleiste anfügen.</span> Wählen Sie dieses Kontrollkästchen aus, um die Erklärung aus der Sekundärtabelle zur Titelleiste der Primärtabelle hinzuzufügen. (Diese Auswahl funktioniert bei einigen Versionen von IBM® SPSS® Statistics nicht.)</p>
+
+  <p><span class="runinhead">Sekundärbeschriftung anhängen.</span> Wählen Sie dieses Kontrollkästchen aus, um die Beschriftung aus der Sekundärtabelle zur entsprechende Primärspalte hinzuzufügen. Die in den Datenzellen verwendeten Trennzeichen werden mit eingeschlossen.</p>
+
+  <p><span class="runinhead">Warnungsfußnote für Schicht unterdrücken.</span> Diese Prozedur funktioniert nur in der obersten Schicht einer Tabelle. Wenn die Tabelle weitere Schichten aufweist, wird eine Warnungsfußnote hinzugefügt. Wählen Sie dieses Kontrollkästchen aus, um die Fußnote zu unterdrücken.</p>
+
+  <p><span class="runinhead">Beschriftungsebenen für erste Zeile und Spalte ausgeben.</span> Wählen Sie dieses Kontrollkästchen aus, um vor und nach jeder Transformation alle Beschriftungsebenen beider Tabellen anzuzeigen. Da Tabellen häufig ausgeblendete Ebenen aufweisen, sind diese Informationen nützlich, um anzugeben, wie die beiden Tabellen abgeglichen werden sollen.</p>
+
+  <p><span class="runinhead">Horizontale Zellenausrichtung nach dem Zusammenführen.</span> Mit diesen Steuerelementen können Sie festlegen, wie die Zellenwerte nach der Kombination ausgerichtet werden sollen.</p>
+
+  <p><span class="runinhead">Benutzerdefinierte Trennzeichen.</span>
+  Geben Sie mindestens ein Zeichen ein, mit dem die Primär- und Sekundärwerte in der Zelle getrennt werden sollen. Verwenden Sie "\n", um anzugeben, dass sich die Werte in separaten Zeilen befinden sollen.</p>
+
+  <p><span class="runinhead">Verbindungen.</span> Klicken Sie auf die Schaltfläche <span class="screen">Verbindungen</span>, um Details zur Verbindung der Beschriftungen anzugeben.</p>
+
+  <h2>Verbindungsregeln für Beschriftungen anpassen</h2>Zellen von Pivot-Tabellen werden entsprechend den folgenden Regeln für die Zeilen- und Spaltenbeschriftungen abgeglichen.
+
+  <p class="bullet">•&nbsp;Die Beschriftungen werden anhand der Ebenenauswahl gefiltert. Sie können die für den Abgleich der Zellen zu verwendenden Ebenen auswählen, indem Sie mindestens eine Nummer in die Steuerelemente für die Primär- und Sekundärzeile bzw. -spalte eingeben. Wenn eine Tabellendimension beispielsweise den Beschriftungssatz <br><span class="code">A B C</span><br> aufweist, ist A Ebene 0, B Ebene 1 und C Ebene 2. Die Eingabe von "1,2" im Steuerelement führt dazu, dass der Beschriftungssatz in <br><span class="code">B C</span><br> transformiert wird, bevor versucht wird, ihn mit dem Beschriftungssatz in der entsprechenden Dimension der anderen Tabelle abzugleichen. Bei unterschiedlicher Struktur müssen Sie möglicherweise in den beiden Tabellen verschiedene Elemente auswählen.</p>
+
+  <p class="bullet">•&nbsp;Der Beschriftungssatz wird in der Reihenfolge transformiert, in der die Nummern eingegeben werden. "1 2" und "2 1" führen also zu unterschiedlichen Ergebnissen.</p>
+
+  <p class="bullet">•&nbsp;Wählen Sie im Hauptdialog das Kontrollkästchen <span class="screen">Beschriftungsebenen für erste Zeile und Spalte ausgeben</span> aus, um die vollständige Struktur der Tabellen einzublenden.</p>
+
+  <p class="bullet">•&nbsp;Nach jeder Ebenenfilterung können die Beschriftungen mithilfe von benutzerdefinierten Funktionen oder Python-Standardfunktionen weiter transformiert werden. So kann beispielsweise eine Tabelle die Beschriftung
+<span class="screen">"Pearson-Korrelation"</span> aufweisen, während
+die zugehörige Beschriftung in der anderen Tabelle <span class="screen">"Korrelationskoeffizient"</span> lautet. Mit einer benutzerdefinierten Funktion kann eine der Beschriftungen transformiert werden, sodass die resultierenden Beschriftungssätze übereinstimmen.</p>
+
+  <p class="bullet">•&nbsp;Benutzerdefinierte Tabellen weisen möglicherweise eine ausgeblendete Ebene mit der Bezeichnung "Statistiken" auf. Bei der Zusammenführung von Signifikanztabellen in die Haupttabelle wird diese Ebene standardmäßig übergangen. Dies kann in der Syntax außer Kraft gesetzt werden.</p>
+
+  <p class="bullet">•&nbsp;Wenn die Funktion "Keine" ausgibt, wird die betreffende Zelle nicht zusammengeführt.</p>
+
+  <p class="bullet">•&nbsp;Die Einstellung von <span class="screen">Dimension für den Anfügepunkt</span> bestimmt, welche Aktionen mit den Standardfunktionen ausgeführt werden. Bei <span class="screen">Spalte</span> führt die Zeilenfunktion keine Aktion aus und die Spaltenfunktion löscht die letzte Ebene der Spaltenbeschriftung. Bei <span class="screen">Zeile</span> löscht die Zeilenfunktion die letzte Ebene der Beschriftung, sofern diese mit der Beschriftung des Anfügepunkts übereinstimmt. Die Spaltenfunktion löscht die letzte Ebene in der Sekundärtabelle, führt in der Primärtabelle jedoch keine Aktion aus.</p>
+
+  <p class="bullet">•&nbsp;Die Standardfunktionen sind so konzipiert, dass sie mit der Haupttabelle unter "Benutzerdefinierte Tabellen" und mit den Testtabellen für Spaltenanteile und Spaltenmittel zusammenarbeiten. Bei diesen Tabellen muss normalerweise keine Ebenenfilterung verwendet werden. Die Beschriftung des Anfügepunkts in der Haupttabelle legt fest, wo der Sekundärwert angefügt werden soll, wenn die Haupttabelle unter jeder Kategorie mehrere Statistiken aufweist.
+  Für andere Arten von Zusammenführungen kann es sinnvoll sein, die Standardfunktionen zu unterdrücken.</p>
+
+  <p><span class="runinhead">Typ der Verbindungsfunktion.</span> Wählen Sie den Standardsatz an Funktionen oder einen benutzerdefinierten Satz aus.</p>
+
+  <p class="bullet">•&nbsp;Wenn Sie einen benutzerdefinierten Satz auswählen, wird weder die Standardzeilenfunktion noch die Standardspaltenfunktion angewendet.
+  Nur die gegebenenfalls angegebenen benutzerdefinierten Zeilen- bzw. Spaltenfunktionen werden angewendet. Es ist nicht erforderlich, sowohl Zeilen- als auch Spaltenfunktionen anzugeben. Wenn Sie "Benutzerdefiniert" auswählen und keine Funktionsnamen eingeben, werden also keine Funktionen angewendet.</p>
+
+  <p><span class="runinhead">Benutzerdefinierte Zeilen- bzw. Spaltenfunktion.</span>
+  Geben Sie die Funktionsnamen im Format <br>Modul.Funktion<br> ein. Dabei ist "Modul" der Name des Python-Moduls, in dem die Funktion definiert ist. Diese Funktionen werden nur verwendet, wenn das zweite Optionsfeld ausgewählt wurde.</p>
+
+  <h2>Weitere Funktionen</h2>
+
+  <p>In diesem Dialogfeld wird Syntax für den Erweiterungsbefehl "SPSSINC MERGE TABLES" generiert. Führen Sie folgende Syntax aus, um Hilfe für diesen Befehl anzuzeigen:</p>
+
+  <p class="codeblock">SPSSINC MERGE TABLES /HELP.</p>
+
+  <p>In der Syntax stehen weitere Funktionen für andere Möglichkeiten zur Auswahl der Primär- und Sekundärtabelle zur Verfügung. Bei komplexen Tabellen müssen möglicherweise benutzerdefinierte rowfunc- und colfunc-Funktionen geschrieben werden, damit vor dem Kombinieren eine Vorverarbeitung der Zeilen- und Spaltenbeschriftungen durchgeführt wird.
+  Tabellen können auch auf der Grundlage der Zeilen- oder Spaltennummern anstelle des Beschriftungstexts zusammengeführt werden. SPSSINC_MERGE_TABLES enthält die Beispielfunktionen rowfuncbynumber und colfuncbynumber, die dies verdeutlichen. Das Modul SPSSINC_MERGE_TABLES.py enthält weitere Informationen zur Verwendung der Zusammenführungsfunktionen.</p>
+
+  <h2>Anforderungen</h2>
+
+  <p>Für dieses Dialogfeld sind das Integrations-Plug-in für Python und der Erweiterungsbefehl "SPSSINC MERGE TABLES" erforderlich. Bei IBM SPSS Statistics 19 und höher werden das Plug-in und der Erweiterungsbefehl zusammen mit dem Paket "Essentials for Python" installiert. Weitere Informationen finden Sie im Hilfesystem zu IBM SPSS Statistics unter "Core-System &gt; Häufig gestellte Fragen" im Thema "Beziehen von Integrations-Plug-ins". Wenn Sie "SPSSINC MERGE TABLES" von der SPSS Community heruntergeladen haben, befolgen Sie die Anweisungen in der zugehörigen Readme-Datei.</p><br>
+  <hr>
+
+  <p style="font-size:80%;">
+  © Copyright IBM Corp. 1989, 2013</p>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Fusionner deux tableaux du visualiseur</title>
+  <style type="text/css">
+
+  <!-- 
+
+  H1 {font-weight:bold; color:#006699; font-size:125%; }
+  H2 {font-weight:bold; color:#006699; font-size:110%; }
+  TABLE {font-size:100%;}
+
+  /* paragraph tags */
+  .step {text-indent: -1.3em; margin-left:1.3em; margin-top: 0px;}
+  .menuselection {margin-left:10px}
+  .bullet {list-style-type: disc;margin-top:12px; margin-left:36px; text-indent:-1em; }
+  .codeblock {background-color: #ffffe6; display:block; margin-left:5px; padding:5px;}
+
+  /* inline tags */
+  .screen {font-weight:bold; color:#408080}                       /*** used refer to on-screen text ***/
+  .name {font-style: italic}                                                       /*** used to tag names, such as variable names, file names, and so forth ***/
+  .runinhead {font-weight: bold} 
+  .superscript {vertical-align:super; font-size:80%}
+  .subscript {vertical-align:sub; font-size:80%}
+
+
+  --> 
+  </style>
+</head>
+
+<body>
+  <h1>Fusionner deux tableaux du visualiseur</h1>Cette procédure combine les valeurs des cellules d'un tableau avec les valeurs d'un autre tableau. Le tableau fournissant des valeurs est surnommé le tableau secondaire et le tableau qui en reçoit s'appelle le tableau primaire. L'utilisation la plus fréquente est de combiner les tableaux des tests des proportions ou des moyennes des Tableaux personnalisés avec le tableau principal mais de nombreux autres types de fusion sont également possibles.
+
+  <p>Les cellules pour la combinaison sont liées à l'aide des libellés de ligne et de colonne des deux tableaux. Celles-ci peuvent être associées à un nom au niveau le plus interne comme « Nombre » pour indiquer l'emplacement des valeurs lorsque le même libellé de catégorie peut contenir plusieurs statistiques. Certains types de tableau ne peuvent pas être fusionnés. Il peut être nécessaire de faire plusieurs essais.</p>
+
+  <p class="bullet">•&nbsp;Les notes de bas de page du tableau secondaire ne sont pas transférées dans le tableau primaire.</p>
+
+  <p><span class="runinhead">Point d'association.</span> Indiquez la dimension contenant le libellé du tableau primaire qui définit l'emplacement où les valeurs du tableau secondaire seront associées, le cas échéant.</p>
+
+  <p><span class="runinhead">Libellé du tableau principal (omettre si aucune n'existe).</span>
+  En option, spécifiez le libellé du niveau le plus bas où les valeurs secondaires doivent être insérées. Par exemple, un tableau peut contenir des libellés « Nombre » et « Pourcentage » sous chaque catégorie de variable. Ce contrôle vous permet de choisir laquelle utiliser.</p>
+
+  <p class="bullet">•&nbsp;Videz le champ s'il n'y a pas de libellé en double et si les valeurs de catégorie doivent être utilisées seules pour définir la jointure. Mais n'oubliez pas que parfois le libellé est toujours présent bien que masqué et qu'il doit être spécifié. C'est en particulier le cas lorsque vous choisissez de masquer un libellé de statistiques dans les tableaux personnalisés.</p>
+
+  <p><span class="runinhead">Types de tableaux primaire et secondaire.</span> Par défaut, cette procédure fusionne les deux derniers tableaux dans le visualiseur, et considère le dernier tableau comme le tableau secondaire. Entrez les sous-types de tableaux OMS pour spécifier d'autres tableaux. Vous pouvez également entrer une paire de nombres absolus d'éléments du visualiseur.
+  L'élément racine du visualiseur est le nombre 0.</p>
+
+  <p class="bullet">•&nbsp;Vous devez saisir les deux sous-types ou rien.</p>
+
+  <p class="bullet">•&nbsp;Pour rechercher le sous-type du tableau, cliquez avec le bouton droit de la souris sur le titre de légende d'un exemple ou référez-vous à la boîte de dialogue Identificateurs OMS dans le menu <span class="screen">Utilitaires</span>.</p>
+
+  <p class="bullet">•&nbsp;La recherche des tableaux s'effectue vers l'arrière depuis la fin du visualiseur.</p>
+
+  <p><span class="runinhead">Mode de fusion.</span> Sélectionnez <span class=
+ "screen">Ajouter la valeur de la cellule secondaire à la valeur de la cellule primaire</span> pour ajouter les valeurs secondaires aux valeurs primaires. Sélectionnez <span class=
+ "screen">Remplacer la valeur de la cellule primaire par la valeur de la cellule secondaire</span> pour remplacer la valeur du tableau primaire par la valeur secondaire. Si aucune valeur secondaire n'est disponible, la valeur primaire est conservée.</p>
+
+  <p><span class="runinhead">Masquer le tableau secondaire après la fusion.</span> Cochez cette case pour que le tableau secondaire soit invisible après la fusion.</p>
+
+  <p><span class="runinhead">Ajouter le titre du tableau secondaire au tableau primaire.</span> Cochez cette case pour ajouter le titre du tableau secondaire à la fin du titre du tableau primaire.</p>
+
+  <p><span class="runinhead">Ajouter les informations de la légende secondaire.</span> Cochez cette case pour ajouter la légende du tableau secondaire à celle du tableau primaire. (Ce choix n'est pas disponible dans certaines versions de IBM® SPSS® Statistics.)</p>
+
+  <p><span class="runinhead">Ajouter le libellé secondaire.</span> Cochez cette case pour ajouter la légende du tableau secondaire à la colonne primaire correspondante. Ceci inclura le/les caractère(s) de séparation utilisé(s) dans les cellules de données.</p>
+
+  <p><span class="runinhead">Supprimer l'avertissement de pied de page concernant les couches.</span> Cette procédure ne fonctionne que sur la couche supérieure d'un tableau. Si un tableau contient des couches supplémentaires, une note de bas de page d'avertissement est ajoutée. Sélectionnez cette case pour supprimer la note de bas de page.</p>
+
+  <p><span class="runinhead">Imprimer les niveaux de libellés de la première ligne et de la première colonne.</span> Cochez cette case pour afficher tous les niveaux de libellés des tableaux avant et après une transformation. Les tableaux ayant souvent des niveaux cachés, ces informations sont utiles pour spécifier la façon dont les libellés des deux tableaux sont mis en correspondance.</p>
+
+  <p><span class="runinhead">Alignement horizontal des cellules après la fusion.</span> Utilisez ces contrôles pour déterminer la façon dont les valeurs des cellules sont alignées après avoir été combinées.</p>
+
+  <p><span class="runinhead">Personnaliser les caractères de séparation.</span>
+  Entrez un ou plusieurs caractères devant séparer les valeurs primaires et secondaires dans la cellule. Utilisez «  » pour indiquer que les valeurs doivent être sur des lignes séparées.</p>
+
+  <p><span class="runinhead">Jointures.</span> Cliquez sur le bouton <span class="screen">Jointures</span> pour fournir des détails sur la façon dont les libellés sont joints.</p>
+
+  <h2>Personnaliser la sous-boîte de dialogue des règles de jointure de libellé</h2>Les cellules de tableaux croisés dynamiques sont mises en correspondance en fonction des règles suivantes appliquées aux libellés de ligne et de colonne.
+
+  <p class="bullet">•&nbsp; Les libellés sont filtrés par sélections de niveau. Vous pouvez sélectionner les niveaux utilisés pour la correspondance des cellules en entrant un ou plusieurs nombres dans les commandes des lignes et colonnes primaires et secondaires. Par exemple, si une dimension de tableau comporte un ensemble de libellés<br>
+  <span class="code">A B C</span><br>
+  le niveau 0 est A, le niveau 1 est B et le niveau 2 est C. Si vous entrez 1,2 dans le contrôle, l'ensemble de libellés est transformé en<br>
+  <span class="code">B C</span><br>
+  avant la tentative de mise en correspondance avec l'ensemble de libellés dans la dimension correspondante de l'autre tableau. Des sélections différentes dans les deux tableaux peuvent être nécessaires si la structure est différente.</p>
+
+  <p class="bullet">•&nbsp; La transformation de l'ensemble de libellés utilise l'ordre dans lequel les nombres sont saisis. Ainsi 1 2 et 2 1 produisent des résultats différents.</p>
+
+  <p class="bullet">•&nbsp; Cochez la case <span class="screen">Imprimer les niveaux de libellés de la première ligne et de la première colonne</span> sur la boîte de dialogue principale pour révéler la structure complète des tableaux.</p>
+
+  <p class="bullet">•&nbsp;Après un filtrage des niveaux, les fonctionnalités de Python d'écriture par l'utilisateur ou standard peuvent être appelées pour transformer les libellés plus avant. Par exemple, un tableau peut contenir un libellé <span class="screen">"Corrélation de Pearson"</span> alors que le libellé correspondant dans l'autre tableau peut être <span class=
+ "screen">"Coefficient de corrélation"</span>. Une fonction personnalisée pourrait transformer un des libellés afin que les ensembles en résultant correspondent.</p>
+
+  <p class="bullet">•&nbsp;Les tableaux personnalisés peuvent contenir un niveau masqué appelé "Statistiques". Par défaut, ce niveau est ignoré lors de la fusion des tableaux de signification dans le tableau principal. Il est possible d'ignorer ceci dans la syntaxe.</p>
+
+  <p class="bullet">•&nbsp;Si la fonction renvoie Aucun, cette cellule ne sera pas fusionnée.</p>
+
+  <p class="bullet">•&nbsp;Le rôle des fonctions standard dépend du paramètre <span class="screen">Dimension du point d'association</span>. Pour <span class="screen">Colonne</span>, la fonction de la ligne ne fait rien, et la fonction de la colonne supprime le dernier niveau du libellé de la colonne. Pour <span class="screen">Ligne</span> la fonction de la ligne supprime le dernier niveau du libellé s'il correspond au libellé du point d'association. La fonction de la colonne supprime le dernier niveau dans le tableau secondaire mais ne fait rien dans le tableau primaire.</p>
+
+  <p class="bullet">•&nbsp;Les fonctions standard sont conçues pour fonctionner avec le tableau principal des Tableaux personnalisés et avec les tableaux de test des Proportions de colonnes ou des Moyennes de colonnes. Il est généralement inutile d'utiliser le filtrage des niveaux avec ces tableaux. Le libellé du point d'association dans le tableau principal contrôle l'emplacement de l'association de la valeur secondaire lorsque le tableau principal comporte plusieurs statistiques sous chaque catégorie.
+  Vous pouvez supprimer les fonctions standard pour d'autres types de fusion.</p>
+
+  <p><span class="runinhead">Type de fonction de jointure.</span> Choisissez l'ensemble de fonctions standard ou un ensemble personnalisé.</p>
+
+  <p class="bullet">•&nbsp;Si vous choisissez un ensemble personnalisé, ni la fonction de la ligne standard ni celle de la colonne standard ne sera appliquée.
+  Seules les fonctions de ligne ou de colonne personnalisées nommées (le cas échéant) seront appliquées. Il n'est pas nécessaire de fournir des fonctions de ligne et des fonctions de colonne. Par conséquent, si vous choisissez Personnalisé et que vous n'entrez aucun nom de fonction, aucune fonction n'apparaît.</p>
+
+  <p><span class="runinhead">Personnaliser la fonction de ligne ou de colonne.</span>
+  Entrez les noms de fonction au format<br>
+  module.function<br>
+  où module est le nom de module Python dans lequel la fonction est définie. Ces fonctions ne sont utilisées que si le deuxième bouton radio est défini.</p>
+
+  <h2>Fonctions supplémentaires</h2>
+
+  <p>Cette boîte de dialogue génère une syntaxe pour la commande d'extension SPSSINC MERGE TABLES. Pour afficher l'aide de cette commande, exécutez la syntaxe suivante :</p>
+
+  <p class="codeblock">SPSSINC MERGE TABLES /HELP.</p>
+
+  <p>Des fonctions supplémentaires sur d'autres façons de sélectionner les tableaux primaires et secondaires sont disponibles dans la syntaxe. Pour les tableaux complexes, il peut être nécessaire de créer des fonctions rowfunc et colfunc personnalisées afin d'effectuer un pré-traitement des libellés de ligne et de colonne avant la combinaison.
+  Il est également possible de fusionner les tableaux en fonction des numéros de lignes ou de colonnes plutôt que du texte des libellés. SPSSINC_MERGE_TABLES contient des exemples de fonctions nommées rowfuncbynumber et colfuncbynumber qui illustrent cette option. Le module SPSSINC_MERGE_TABLES.py contient des informations supplémentaires sur l'utilisation des fonctions de fusion personnalisées.</p>
+
+  <h2>Conditions requises</h2>
+
+  <p>Cette boîte de dialogue requiert le plug-in d'intégration pour Python et la commande d'extension SPSSINC MERGE TABLES. Pour IBM SPSS Statistics 19 et versions ultérieures, le plug-in et la commande d'extension sont installés avec le pack Essentials for Python. Pour plus d'informations, reportez-vous à
+Comment obtenir des plug-in d'intégration dans Système central &gt; Questions fréquemment posées dans le système d'aide d'IBM SPSS Statistics. Si vous avez téléchargé SPSSINC MERGE TABLES depuis la communauté SPSS, suivez les instructions dans le fichier associé Lisezmoi.</p><br>
+  <hr>
+
+  <p style="font-size:80%;">
+  © Copyright IBM Corp. 1989, 2013</p>
+</body>
+</html>

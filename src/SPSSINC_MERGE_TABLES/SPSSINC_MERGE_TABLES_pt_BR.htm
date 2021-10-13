@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Mesclar duas tabelas do visualizador</title>
+  <style type="text/css">
+
+  <!-- 
+
+  H1 {font-weight:bold; color:#006699; font-size:125%; }
+  H2 {font-weight:bold; color:#006699; font-size:110%; }
+  TABLE {font-size:100%;}
+
+  /* paragraph tags */
+  .step {text-indent: -1.3em; margin-left:1.3em; margin-top: 0px;}
+  .menuselection {margin-left:10px}
+  .bullet {list-style-type: disc;margin-top:12px; margin-left:36px; text-indent:-1em; }
+  .codeblock {background-color: #ffffe6; display:block; margin-left:5px; padding:5px;}
+
+  /* inline tags */
+  .screen {font-weight:bold; color:#408080}                       /*** used refer to on-screen text ***/
+  .name {font-style: italic}                                                       /*** used to tag names, such as variable names, file names, and so forth ***/
+  .runinhead {font-weight: bold} 
+  .superscript {vertical-align:super; font-size:80%}
+  .subscript {vertical-align:sub; font-size:80%}
+
+
+  --> 
+  </style>
+</head>
+
+<body>
+  <h1>Mesclar duas tabelas do visualizador</h1>Este procedimento combina valores de célula de uma tabela com valores em outra tabela. A tabela fornecedora é conhecida como tabela secundária, enquanto a tabela receptora é conhecida como tabela primária. O uso mais comum é combinar tabelas de teste de proporção ou de médias das Tabelas customizadas com a tabela principal, mas vários outros tipos de mesclagem são possíveis.
+
+  <p>As células para combinação são unidas usando os rótulos de linha e coluna das duas tabelas. Elas podem ser combinadas com um nome no nível mais interno, como "Contagem", para indicar onde os valores devem estar nos casos em que o mesmo rótulo de categoria pode ter mais de uma estatística em si. Alguns tipos de tabelas não podem ser mesclados. Podem ser necessários alguns testes.</p>
+
+  <p class="bullet">•&nbsp;Notas de rodapé da tabela secundária não   são transportadas para a tabela primária.</p>
+
+  <p><span class="runinhead">Ponto de Anexo.</span> Indique   a dimensão contendo o rótulo da tabela primária que define   onde os valores da tabela secundária serão anexados, se houver.</p>
+
+  <p><span class="runinhead">Rótulo na Tabela Primária.</span>
+  Opcionalmente, especifique o rótulo de nível mais baixo no qual   valores secundários devem ser inseridos. Por exemplo, uma tabela pode ter os rótulos "Contagem" e "Porcentagem" em cada categoria de variável. Esse controle oferece uma forma de escolher qual usar.</p>
+
+  <p class="bullet">•&nbsp;Deixe o campo vazio se não houver um rótulo   repetido e os valores de categoria em si tiverem que ser usados sozinhos   para definir a junção. No entanto, saiba que, às vezes, o rótulo ainda está presente, mas está oculto, e precisa ser especificado. Particularmente, isso ocorre quando você decide Ocultar um rótulo de estatística com Tabelas customizadas.</p>
+
+  <p><span class="runinhead">Tipo de Tabela Primária e   Secundária.</span> Por padrão, esse procedimento mescla as duas   últimas tabelas no Visualizador, tratando a última como secundária. Insira os subtipos de tabela OMS para especificar outras tabelas. Como alternativa, você pode inserir um par de números de item absolutos do Visualizador.
+  O item raiz do Visualizador é o número 0.</p>
+
+  <p class="bullet">•&nbsp;Você deve inserir ambos os subtipos ou   nenhum subtipo.</p>
+
+  <p class="bullet">•&nbsp;Para localizar o subtipo de tabela, clique   com o botão direito no título da estrutura de tópicos de um exemplo   ou consulte o diálogo Identificadores OMS no menu   <span class="screen">Utilitários</span>.</p>
+
+  <p class="bullet">•&nbsp;A procura por tabelas trabalha retroativamente, a partir do fim do Visualizador.</p>
+
+  <p><span class="runinhead">Modo de Mesclagem.</span> Selecione <span class=
+  "screen">Anexar valor de célula da secundário na primária</span> para anexar os   valores secundários aos primários. Selecione <span class=
+  "screen">Substituir valor de célula primário por secundário</span> para   substituir o valor de tabela primário pelo valor secundário. Se nenhum valor secundário estiver disponível, o valor primário será mantido.</p>
+
+  <p><span class="runinhead">Ocultar tabela secundária após a   mesclagem.</span> Marque esta caixa para tornar a tabela   secundária invisível após a mesclagem.</p>
+
+  <p><span class="runinhead">Anexar título da tabela secundária   à tabela primária.</span> Marque esta caixa para incluir o título   da tabela secundária no final do título da tabela primária.</p>
+
+  <p><span class="runinhead">Anexar informações de legenda   secundária.</span> Marque esta caixa para incluir a legenda   da tabela secundária à legenda da tabela primária. (Esta opção não funciona em algumas versões do IBM® SPSS® Statistics.)</p>
+
+  <p><span class="runinhead">Anexar rótulo secundário.</span> Marque esta caixa para incluir o rótulo da tabela secundária na coluna primária correspondente. Ela irá incluir o(s) caractere(s) de separação usado(s) nas células de dados.</p>
+
+  <p><span class="runinhead">Suprimir nota de rodapé de aviso de camada.</span> Este procedimento opera apenas na camada superior de uma tabela. Se uma tabela tiver camadas adicionais, será adicionada uma nota de rodapé de aviso. Marque esta caixa para suprimir a nota de rodapé.</p>
+
+  <p><span class="runinhead">Níveis de rótulo de impressão para primeira   linha e coluna.</span> Marque esta caixa para exibir todos os níveis   de rótulo de ambas as tabelas antes e depois de qualquer transformação. Uma vez que as tabelas frequentemente têm níveis ocultos, essas informações são úteis na especificação da forma pela qual os rótulos em duas tabelas são comparados.</p>
+
+  <p><span class="runinhead">Alinhamento de Célula Horizontal após   Mesclagem.</span> Use estes controles para determinar como os valores   de célula são alinhados após serem combinados.</p>
+
+  <p><span class="runinhead">Caracteres Separadores Customizados.</span>
+  Insira um ou mais caracteres que devem separar os valores   primário e secundário na célula. Use "\n" para indicar que   os valores devem estar em linhas separadas.</p>
+
+  <p><span class="runinhead">Junções.</span> Clique no botão   <span class="screen">Junções</span> para especificar detalhes   de como rótulos são unidos.</p>
+
+  <h2>Subdiálogo Customizar regras de junção de rótulo</h2>As células da tabela dinâmica são comparadas de acordo com as seguintes regras aplicadas aos rótulos de linha e coluna.
+
+  <p class="bullet">•&nbsp; Rótulos são filtrados por seleções   de nível. Você pode selecionar os níveis que são usados para estabelecer a correspondência entre células, inserindo um ou mais números nos controles da linha e da coluna primária e secundária. Por exemplo, se uma dimensão de tabela   tiver um conjunto de rótulos<br>
+  <span class="code">A B C</span><br>
+  o nível 0 será A, o nível 1 será B e o nível 2 será C. A inserção   de 1,2 no controle faz o conjunto de rótulos ser transformado em<br>
+  <span class="code">B C</span><br>
+  antes de você tentar fazer sua correspondência com o conjunto de   rótulos na dimensão correspondente da outra tabela. Se houver diferença de estrutura, podem ser necessárias diferentes seleções nas duas tabelas.</p>
+
+  <p class="bullet">•&nbsp; A transformação do conjunto de rótulos usa   a ordem em que os números são inseridos. Por isso, 1 2 e 2 1 produzem resultados diferentes.</p>
+
+  <p class="bullet">•&nbsp; Use a caixa de seleção <span class="screen">Níveis   de rótulo de impressão para primeira linha e coluna</span> no diálogo principal   para revelar a estrutura completa das tabelas.</p>
+
+  <p class="bullet">•&nbsp;Após uma filtragem de qualquer nível, funções   Python padrão ou gravadas pelo usuário podem ser chamadas para transformar   mais os rótulos. Por exemplo, uma tabela pode ter um rótulo   <span class="screen">"Correlação de Pearson"</span> enquanto   o rótulo correspondente na outra tela pode ser <span class=
+  "screen">"Coeficiente de Correlação"</span>. Uma função customizada pode transformar um dos rótulos de forma que os conjuntos resultantes sejam correspondentes.</p>
+
+  <p class="bullet">•&nbsp;Tabelas Customizadas podem ter um   nível oculto denominado "Estatísticas". Por padrão, esse nível é omitido ao mesclar tabelas de significância na tabela principal. É possível anular isso na sintaxe.</p>
+
+  <p class="bullet">•&nbsp;Se a função retornar Nenhum, a célula   não será mesclada.</p>
+
+  <p class="bullet">•&nbsp;O que as funções padrão fazem depende   da configuração <span class="screen">Dimensão do Ponto de   Anexo</span>. Para <span class="screen">Coluna</span>, a função   de linha não faz nada e a função de coluna exclui o último nível   do rótulo da coluna. Para <span class="screen">Linha</span>, a   função de linha exclui o último nível do rótulo se corresponder   ao rótulo do ponto de anexo. A função coluna exclui o último nível da tabela secundária, mas não faz nada na tabela primária.</p>
+
+  <p class="bullet">•&nbsp;As funções padrão são projetadas para   trabalhar com a tabela principal Tabelas Customizadas e tabelas   de teste Proporções de Coluna ou Médias de Coluna. Geralmente, não é necessário usar filtragem de nível com essas tabelas. O rótulo do ponto de conexão na tabela principal controla onde anexar o valor secundário quando a tabela principal tiver mais de uma estatística em cada categoria.
+  É recomendável suprimir as funções padrão para outros tipos de mesclagens.</p>
+
+  <p><span class="runinhead">Tipo de Função de Junção.</span> Escolha   o conjunto padrão de funções ou conjunto customizado.</p>
+
+  <p class="bullet">•&nbsp;Se você escolher um conjunto customizado,   nem a função de linha padrão e nem a de coluna padrão será aplicada.
+  Somente as funções indicadas de linha ou coluna, se houver, serão aplicadas. Não é necessário fornecer ambas as funções de linha e coluna. Dessa forma, se você escolher Customizado e não inserir nomes de função, nenhuma função será aplicada.</p>
+
+  <p><span class="runinhead">Função de Linha ou Coluna Customizada.</span>
+  Insira os nomes de função no formato<br>
+  module.function<br>
+  em que módulo é o nome do módulo Python no qual a função   é definida. Essas funções só são usadas se o segundo botão de opções estiver configurado.</p>
+
+  <h2>Recursos adicionais</h2>
+
+  <p>Esta caixa de diálogo gera sintaxe para o comando de extensão SPSSINC MERGE TABLES. Para exibir ajuda para este comando, execute a seguinte sintaxe:</p>
+
+  <p class="codeblock">SPSSINC MERGE TABLES /HELP.</p>
+
+  <p>Recursos adicionais estão disponíveis na sintaxe para outras maneiras de selecionar as tabelas primária e secundária. Para tabelas complexas, pode ser necessário escrever as funções customizadas rowfunc e colfunc para pré-processar os rótulos de linha e da coluna antes da combinação.
+  Também é possível mesclar tabelas com base nos números de linha ou coluna, em vez de no texto do rótulo. SPSSINC_MERGE_TABLES contém funções de exemplo chamadas rowfuncbynumber e colfuncbynumber que ilustram isso. O módulo SPSSINC_MERGE_TABLES.py contém mais informações sobre o uso de funções de mesclagem customizadas.</p>
+
+  <h2>Requisitos</h2>
+
+  <p>Esta caixa de diálogo exige o plug-in de integração para Python e o comando de extensão SPSSINC MERGE TABLES. Para o IBM SPSS Statistics 19 e posterior, o Plug-in e o comando de extensão são instalados com o pacote Essentials for Python. Para obter informações adicionais, consulte Como Obter Integration Plug-In, no Sistema Principal &gt; Perguntas mais Frequentes no sistema de ajuda do IBM SPSS Statistics Help. Se você tiver feito o download de SPSSINC MERGE TABLES da Comunidade SPSS, siga as instruções do arquivo Leia-me associado.</p><br>
+  <hr>
+
+  <p style="font-size:80%;">
+  © Copyright IBM Corp. 1989, 2013</p>
+</body>
+</html>

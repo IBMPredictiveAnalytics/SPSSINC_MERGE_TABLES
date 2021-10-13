@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Połącz dwie tabele</title>
+  <style type="text/css">
+
+  <!-- 
+
+  H1 {font-weight:bold; color:#006699; font-size:125%; }
+  H2 {font-weight:bold; color:#006699; font-size:110%; }
+  TABLE {font-size:100%;}
+
+  /* paragraph tags */
+  .step {text-indent: -1.3em; margin-left:1.3em; margin-top: 0px;}
+  .menuselection {margin-left:10px}
+  .bullet {list-style-type: disc;margin-top:12px; margin-left:36px; text-indent:-1em; }
+  .codeblock {background-color: #ffffe6; display:block; margin-left:5px; padding:5px;}
+
+  /* inline tags */
+  .screen {font-weight:bold; color:#408080}                       /*** used refer to on-screen text ***/
+  .name {font-style: italic}                                                       /*** used to tag names, such as variable names, file names, and so forth ***/
+  .runinhead {font-weight: bold} 
+  .superscript {vertical-align:super; font-size:80%}
+  .subscript {vertical-align:sub; font-size:80%}
+
+
+  --> 
+  </style>
+</head>
+
+<body>
+  <h1>Połącz dwie tabele</h1>Ta procedura łączy wartości komórek z jednej tabeli z wartościami znajdującymi się w innej tabeli. Dołączana tabela jest nazywana podrzędną tabelą, a ta przyjmująca dane tabelą główną. Najczęstszym zastosowaniem jest łączenie tabel wynikowych testów proporcji lub średnich znajdujących się w module Custom Tables z tabelą główną, ale inne łączenia tabel również są możliwe.
+
+  <p>Komórki do kombinacji tabel są łączone przy użyciu opisów wierszy i kolumn obydwu tabel. Mogą być również połączone z nazwą wewnętrznego wymiaru, takiego  jak "Liczebności", aby wskazać gdzie wartości powinny się znaleźć w sytuacji, gdy ta sama etykieta  kategorii może mieć więcej niż jedną statystykę pod sobą. Niektóre rodzaje tabel nie mogą być jednak łączone. Ustalenie tego musi się odbyć na drodze eksperymentalnej.</p>
+
+  <p class="bullet">•&nbsp;Przypisy z tabeli podrzędnej nie są przenoszone do tabeli głównej.</p>
+
+  <p><span class="runinhead">Punkt łączenia.</span> Wskaż wymiar zawierający opis w tabeli głównej, który definiuje miejsce wstawiania wartości z tabeli dołączanej, jeśli są jakieś.</p>
+
+  <p><span class="runinhead">Opis w tabeli głównej.</span>
+  Opcjonalnie wyspecyfikuj najniższy poziom opisu, gdzie wartości z tabeli dołączanej powinny być wstawiane. Na przykład, tabela może mieć etykietę "Liczebność" i "Procent" pod każdą kategorią zmiennej. W ten sposób można kontrolować wybór
+właściwej komórki.</p>
+
+  <p class="bullet">•&nbsp;Pozostaw to pole puste, jeśli nie ma żadnych powtarzających się etykiet i wartości kategorii same w sobie mogą być wykorzystane do zdefiniowania łączenia. Należy jednak uważać, ponieważ pewne etykiety są ciągle
+obecne w tabeli, chociaż nie są widoczne, ale powinny być określone. Takim przykładem w szczególności może być,
+gdy zostanie wybrana opcja ukrywania opisów statystyk w tabeli generowanej przez procedurę Custom Tables.</p>
+
+  <p><span class="runinhead">Typ tabeli głównej i dołączanej.</span> Domyślnie ta procedura łączy ostatnie dwie tabele w oknie raportu, traktując drugą z tabel jako tabelę dołączaną. Wprowadź podtypy tabeli OMS, aby określić inne tabele. Można opcjonalnie wprowadzić parę liczb z bezwzględnej numeracji elementów w oknie raportów (Viewer).
+  Główny element struktury raportu posiada numer 0.</p>
+
+  <p class="bullet">•&nbsp;Musisz wprowadzić obydwa podtypy albo żadnego.</p>
+
+  <p class="bullet">•&nbsp;Aby odnaleźć podtyp tabeli, kliknij prawym przyciskiem myszy w strukturze raportu na obiekcie (tabeli) lub otwórz okno dialogowe Identyfikatory OMS z menu <span class="screen">Narzędzia</span>.</p>
+
+  <p class="bullet">•&nbsp;Poszukiwane tabeli działa począwszy od końca raportu wyświetlonego w oknie Viewer.</p>
+
+  <p><span class="runinhead">Tryb łączenia.</span> Wybierz <span class="screen">Dołącz drugą wartość komórki do pierwszej</span>, aby dołączyć wartości z tabeli dołączanej do głównej. Wybierz <span class="screen">Zamień wartość pierwszą przez drugą</span>, aby zamienić wartości z tabeli głównej wartościami z tabeli dołączanej. Jeżeli nie ma żadnych wartości w tabeli dołączanej, wówczas pozostaje wartość z tabeli głównej.</p>
+
+  <p><span class="runinhead">Ukryj tabelę dołączaną po połączeniu.</span> Zaznacz tę opcję, jeżeli chcesz uczynić tabelę dołączaną niewidoczną w raporcie po połączeniu z tabelą główną.</p>
+
+  <p><span class="runinhead">Dołącz tytuł tabeli dołączanej do głównej.</span> Zaznacz tę opcję, aby dodać tytuł tabeli dołączanej do tytułu tabeli głównej na jego końcu.</p>
+
+  <p><span class="runinhead">Dołącz informacje o przypisach.</span> Zaznacz tę opcję, aby dodać informacje o przypisach z tabeli dołączanej do głównej. (Ta opcja może nie zadziałać w niektórych wersjach IBM® SPSS® Statistics.)</p>
+
+  <p><span class="runinhead">Dołącz etykiety pomocnicze.</span> Zaznacz tę opcję, jeżeli chcesz dodać etykiety kolumn tabeli dołączanej do odpowiednich kolumn w tabeli głównej. Będą zawierać znaki separatora wykorzystywane w komórkach danych.</p>
+
+  <p><span class="runinhead">Ukryj warstwę ostrzeżeń w stopce.</span> Ta procedura działa jedynie na górnej warstwie tabeli. Jeżeli tabela posiada dodatkowe warstwy, dodawane są ostrzeżenia w stopce. Zaznacz tę opcję, aby ukryć stopkę tabeli.</p>
+
+  <p><span class="runinhead">Pokaż poziomy opisów dla pierwszych wierszy i kolumn.</span> Zaznacz tę opcję, aby wyświetlić wszystkie poziomy opisów dla obydwu tabel, przed i po każdej transformacji. Jako że tabele mają często ukryte poziomy, ta informacja jest użyteczna dla specyfikacji sposobu łączenia opisów z łączonych tabel.</p>
+
+  <p><span class="runinhead">Poziome wyrównanie komórek po połączeniu.</span> Użyj tych elementów sterujących w celu określenia, w jaki sposób wartości komórek są wyrównywane po połączeniu tabel.</p>
+
+  <p><span class="runinhead">Znaki separatorów.</span>
+  Wprowadź jeden lub więcej znaków, które powinny oddzielać wartości tabeli głównej od dołączonej w komórce tabeli. Użyj konstrukcji „\n”, aby wskazać, że wartości powinny znajdować się w oddzielnych liniach.</p>
+
+  <p><span class="runinhead">Połączenia.</span> Kliknij przycisk <span class="screen">Połączenia</span>, aby określić szczegóły połączenia opisów.</p>
+
+  <h2>Okno Dostosuj reguły łączenia opisów</h2>Komórki tabeli przestawnej są dopasowywane zgodnie z następującymi regułami, odnoszącymi się do opisów wierszy i kolumn.
+
+  <p class="bullet">•&nbsp;Opisy są filtrowane przez wybory poziomu. Można wybrać poziomy, które są używane do dopasowywania komórek
+poprzez wprowadzenie jednej lub więcej liczb w elementach sterujących głównych i dołączanych wierszy i kolumn. Na przykład, jeżeli wymiar tabeli ma zestaw etykiet<br>
+  <span class="code">A B C</span><br>
+  poziom 0 to A, poziom 1 to B, a poziom 2 jest oznaczony przez C.  Wprowadzenie liczb 1,2 w kontrolce powoduje, że opis zostaje przekształcony do<br>
+  <span class="code">B C</span><br>
+  zanim zostanie dokonana próba jego dopasowania do odpowiedniego wymiaru w innej tabeli. Możesz potrzebować dokonać innych wyborów w  dwóch tabelach, jeśli ich struktura się różni.</p>
+
+  <p class="bullet">•&nbsp; Zestaw przekształceń opisów wykorzystuje porządek, w którym liczby są wprowadzane. I tak 1 2 i 2 1
+daje różne wyniki.</p>
+
+  <p class="bullet">•&nbsp; Użyj opcji <span class="screen">Pokaż poziomy opisów dla pierwszych wierszy i kolumn</span> w głównym oknie dialogowym, aby zobaczyć pełną strukturę tabel.</p>
+
+  <p class="bullet">•&nbsp;Po odfiltrowaniu dowolnego poziomu, stworzone przez użytkownika lub standardowe funkcje języka Python mogą być wywoływane do dalszych przekształceń opisów. Na przykład, jedna z tabel może mieć opis <span class="screen">"Korelacje Pearsona"</span>, podczas gdy odpowiedni opis innej tabeli może brzmieć <span class= "screen">"Współczynniki korelacji"</span>. Funkcja użytkownika mogłaby przekształcić jeden z opisów w taki sposób, by wynikowe zestawy pasowały do siebie.</p>
+
+  <p class="bullet">•&nbsp;Procedura Custom Tables może posiadać ukryty poziom o nazwie "Statystyki". Domyślnie ten poziom jest pomijany, gdy tabele istotności są łączone w głównej tabeli. Jest możliwe nadpisanie tego poprzez użycie komend.</p>
+
+  <p class="bullet">•&nbsp;Jeśli funkcja zwraca Brak, to ta komórka nie może być połączona.</p>
+
+  <p class="bullet">•&nbsp;Co standardowe funkcje robią zależy od ustawień wymiaru <span class="screen">Punktu
+łączenia</span>. Dla <span class="screen">Kolumny</span>, funkcja wierszowa nic nie robi, a funkcja kolumnowa usuwa ostatni poziom opisu kolumny. Dla <span class="screen">Wiersza</span> funkcja wierszowa usuwa ostatni poziom opisu, jeżeli pasuje do opisu punktu łączenia. Funkcja kolumnowa usuwa ostatni poziom w tabeli dołączanej, ale nie robi nic w tabeli głównej.</p>
+
+  <p class="bullet">•&nbsp;Funkcje standardowe zostały zaprojektowane, aby działać z główną tabelą procedury Custom Tables
+oraz tabelami testów proporcji kolumnowej lub średniej kolumnowej. Generalnie nie jest konieczne używanie poziomu filtrującego z tymi tabelami. Etykieta Punktu łączenia w głównej tabeli kontroluje gdzie dołączyć drugą wartość, gdy tabela główna ma więcej niż jedną statystykę pod każdą kategorią.
+  Możesz chcieć zlikwidować funkcje standardowe w przypadku innych typów łączenia.</p>
+
+  <p><span class="runinhead">Typ funkcji łączenia.</span> Wybierz zestaw standardowych funkcji lub zestaw użytkownika.</p>
+
+  <p class="bullet">•&nbsp;Jeżeli wybierzesz zestaw użytkownika, ani standardowa funkcja wierszowa ani kolumnowa nie zostanie zastosowana.
+  Jedynie funkcja wierszowa lub kolumnowa użytkownika zostanie zastosowana. Nie jest konieczne stosowanie obydwu funkcji wierszowej i kolumnowej. Zatem, jeżeli wybierzesz opcję Użytkownika i nie wprowadzisz nazwy funkcji, nie zostaną zastosowane żadne funkcje.</p>
+
+  <p><span class="runinhead">Funkcja użytkownika wierszowa lub kolumnowa.</span>
+  Wprowadź nazwy funkcji w formie<br>
+  module.function<br>
+  gdzie module jest nazwą modułu języka Python, w którym funkcja function jest zdefiniowana. Te funkcje są tylko używane, gdy druga z opcji została wybrana.</p>
+
+  <h2>Funkcje dodatkowe</h2>
+
+  <p>To okno dialogowe generuje składnię komendy dla komendy rozszerzającej SPSSINC MERGE TABLES. Aby wyświetlić pomoc dotyczącą tej komendy, uruchom następującą komendę:</p>
+
+  <p class="codeblock">SPSSINC MERGE TABLES /HELP.</p>
+
+  <p>Dodatkowe właściwości są dostępne w komendach dla innych sposobów wyboru tabeli głównej i dołączanej. Dla tabel złożonych może być konieczne napisanie własnych funkcji rowfunc i colfunc dla przygotowania opisów wierszy i kolumn przed ich połączeniem.
+  Jest także możliwe połączenie tabel na podstawie numerów wierszy i kolumn bardziej niż poprzez etykiety tekstowe. SPSSINC_MERGE_TABLES zawiera przykładowe funkcje rowfuncbynumber i colfuncbynumber, które to ilustrują. Moduł SPSSINC_MERGE_TABLES.py zawiera dalsze informacje na temat używania własnych funkcji łączenia.</p>
+
+  <h2>Wymagania</h2>
+
+  <p>To okno dialogowe wymaga zainstalowania wtyczki integracyjnej dla języka Python oraz komendy rozszerzającej SPSSINC MERGE TABLES. Dla wersji IBM SPSS Statistics 19 i nowszych, wtyczka i komenda rozszerzająca są instalowane razem z pakietem Essentials dla języka Python. W celu uzyskania dalszych informacji, zobacz temat W jaki sposób uzyskać wtyczki integracyjne, wybierając opcję System podstawowy &gt; Często zadawane pytania w systemie pomocy IBM SPSS Statistics. Jeśli SPSSINC MERGE TABLES zostało pobrane ze stron SPSS Community, wówczas należy postępować zgodnie z instrukcjami zawartymi w dołączonym pliku readme.</p><br>
+  <hr>
+
+  <p style="font-size:80%;">
+  © Copyright IBM Corp. 1989, 2013</p>
+</body>
+</html>

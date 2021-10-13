@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>두 개의 뷰어 표 병합</title>
+  <style type="text/css">
+
+  <!-- 
+
+  H1 {font-weight:bold; color:#006699; font-size:125%; }
+  H2 {font-weight:bold; color:#006699; font-size:110%; }
+  TABLE {font-size:100%;}
+
+  /* paragraph tags */
+  .step {text-indent: -1.3em; margin-left:1.3em; margin-top: 0px;}
+  .menuselection {margin-left:10px}
+  .bullet {list-style-type: disc;margin-top:12px; margin-left:36px; text-indent:-1em; }
+  .codeblock {background-color: #ffffe6; display:block; margin-left:5px; padding:5px;}
+
+  /* inline tags */
+  .screen {font-weight:bold; color:#408080}                       /*** used refer to on-screen text ***/
+  .name {font-style: italic}                                                       /*** used to tag names, such as variable names, file names, and so forth ***/
+  .runinhead {font-weight: bold} 
+  .superscript {vertical-align:super; font-size:80%}
+  .subscript {vertical-align:sub; font-size:80%}
+
+
+  --> 
+  </style>
+</head>
+
+<body>
+  <h1>두 개의 뷰어 표 병합</h1>이 프로시저에서는 하나의 표에 있는 셀 값을 다른 표의 값과 조합합니다.  제공하는
+  표를 보조 표라 하며 받는 표를 기본 표라 합니다. 가장 일반적인 사용법은 사용자 정의 표의 비율 또는 평균 검정 표를 기본 표와 조합하는 것이지만 여러 다른 종류의 합치기도 가능합니다.  <p>조합에 대한 셀은 두 표의 행 및 열 레이블을 사용하여
+  결합됩니다. 동일한 범주 레이블에 둘 이상의 통계가 있을 수 있는 경우
+  값이 들어가야 하는 위치를 표시하기 위해 이를 가장 안쪽의 수준에서
+  "빈도" 같은 이름과 결합할 수 있습니다. 일부 표 종류는 병합할 수 없습니다. 일부 실험은 필요하지 않을 수 있습니다.</p>
+
+  <p class="bullet">•&nbsp;보조 표의 꼬리말은 기본 표에 사용되지 않습니다.</p>
+
+  <p><span class="runinhead">배치 포인트.</span> 보조 표 값이 추가되는 위치(있는 경우)를 정의하는
+  기본 표 레이블이 포함된 차원을 표시하십시오.</p>
+
+  <p><span class="runinhead">기본 표의 레이블.</span>
+  또는 보조 값을 삽입해야 하는 최저 수준 레이블을
+  지정하십시오. 예를 들어, 각 변수 범주 아래
+  "빈도" 및 "퍼센트" 레이블이 있을 수 있습니다. 이 제어는
+  사용하기 위해 선택할 방법을 제공합니다.</p>
+
+  <p class="bullet">•&nbsp;반복되는 레이블이 없고 결합을 정의하기 위해 범주 값 자체를
+  단독으로 사용해야 하는 경우 필드를 비워 두십시오. 그러나 때로
+  레이블이 존재함에도 숨겨져 있어 이를 지정해야 할 경우도 있습니다. 특히
+  사용자 정의 표와 함께 통계 레이블 숨기기를 선택할 경우가 이에 해당합니다.</p>
+
+  <p><span class="runinhead">기본 및 보조 표
+  유형.</span> 기본적으로, 이 프로시저는 마지막 항목을 보조 표로 취급하여
+  뷰어에서 마지막 2개 표를 병합합니다. 다른 표를 지정하려면 OMS 표 하위 유형을 입력하십시오. 절대
+  뷰어 항목 번호의 쌍을 대신 입력할 수 있습니다. 뷰어 루트 항목은 숫자 0입니다.</p>
+
+  <p class="bullet">•&nbsp;하위유형을 둘 다 입력하거나 둘 다 입력하지
+  않아야 합니다.</p>
+
+  <p class="bullet">•&nbsp;표 하위 유형을 찾으려면 예제의 개요 제목을
+  마우스 오른쪽 단추로 클릭하거나 <span class="screen">유틸리티</span> 메뉴에서
+  OMS 식별자 대화 상자를 참조하십시오.</p>
+
+  <p class="bullet">•&nbsp;표에 대한 검색은 뷰어의 끝에서
+  역으로 작동합니다.</p>
+
+  <p><span class="runinhead">병합 모드.</span> 보조 값을 기본에 추가하려면 <span class=
+  "화면">보조 셀 값을 기본에 추가</span>를
+  선택하십시오. 기본 표 값을 보조 값으로 대체하려면 <span class=
+  "화면">기본 셀 값을 보조로 대체</span>를
+  선택하십시오. 보조 값을
+  사용할 수 없는 경우, 기본 값이 유지됩니다.</p>
+
+  <p><span class="runinhead">병합 후에 보조 표 숨기기.</span> 병합 후에 보조 표가
+  표시되지 않도록 하려면 이 상자를 선택하십시오.</p>
+
+  <p><span class="runinhead">보조 표 제목을 기본 표에
+  추가.</span> 보조 표 제목을 기본 표 제목의 끝에 추가하려면 이 상자를
+  선택하십시오.</p>
+
+  <p><span class="runinhead">보조 캡션 정보 추가.</span> 보조 표에서 기본 표 캡션으로
+  캡션을 추가하려면 이 상자를 선택하십시오. (이 선택은
+  일부 IBM® SPSS® Statistics 버전에서 사용 가능합니다.)</p>
+
+  <p><span class="runinhead">보조 레이블 추가.</span> 보조 표의 레이블을 해당
+  기본 열에 추가하려면 이 상자를 선택하십시오. 데이터 셀에서 사용된 구분자
+  문자가 포함됩니다.</p>
+
+  <p><span class="runinhead">레이어 경고 꼬리말 숨기기.</span> 이 프로시저는 표의
+  맨 위 레이어에서만 적용됩니다. 표에 추가 레이어가 있는 경우,
+  경고 꼬리말이 추가됩니다. 꼬리말을 표시하지 않으려면 이 상자를 선택하십시오.</p>
+
+  <p><span class="runinhead">첫 번째 행 및 열에 대한 레이블 수준
+  인쇄.</span> 변환 이전과 이후에 표 둘 다의 모든 레이블 수준을
+  표시하려면 이 상자를 선택하십시오. 표에 종종 숨겨진 수준이
+  있기 때문에 이 정보는 두 개 표의 레이블이 매치하는 방법을
+  지정하는 데 유용합니다.</p>
+
+  <p><span class="runinhead">병합 후에 수평 셀 맞춤.</span> 결합 후에 셀 값을 맞추는
+  방법을 결정하려면 이러한 제어를 사용하십시오.</p>
+
+  <p><span class="runinhead">사용자 정의 구분자.</span>
+  셀에서 기본 및 보조 값을 구별해야 하는 하나 이상의 문자를
+  입력하십시오. 값이 별도의 선에 있도록 표시하려면 "\n"을
+  사용하십시오.</p>
+
+  <p><span class="runinhead">결합.</span> 레이블 결합 방법에 대한 세부사항을 지정하려면
+  <span class="screen">결합</span> 단추를 클릭하십시오.</p>
+
+  <h2>레이블 결합 규칙 사용자 정의 하위 대화 상자</h2>피벗표 셀은
+  행 및 열 레이블에 적용되는 다음 규칙에 따라 매치됩니다.  <p class="bullet">•&nbsp; 레이블은 레이블 선택영역별로 필터링됩니다. 기본 및
+  보조 행과 열 제어에서 하나 이상의 수를 입력하여 셀과 매치하는 데
+  사용되는 수준을 선택할 수 있습니다. 예를 들어, 표 차원에 레이블 세트가
+  있는 경우<br>
+  <span class="code">A B C</span><br>
+  수준 0은 A이고, 수준 1은 B이고, 수준 2는 C입니다. 제어에 1,2를
+  입력하면 레이블 세트가 다음으로 변환됩니다.<br>
+  <span class="code">B C</span><br>
+  이를 다른 표의 해당 차원에서 레이블 세트와 매치시키려고 시도하기
+  전에 구조가 다른 경우 두 개의 표에서 다른 선택영역이
+  필요할 수 있습니다.</p>
+
+  <p class="bullet">•&nbsp; 레이블 세트 변환은 숫자가 입력되는 순서를
+  사용합니다. 따라서 1 2와 2 1은 다른 결과를
+  생성합니다.</p>
+
+  <p class="bullet">•&nbsp; 표의 전체 구조를 드러내려면 기본 대화 상자에서
+  <span class="screen">첫 번째 행 및 열에 대한 레이블 수준 인쇄</span> 대화 상자를
+  사용하십시오.</p>
+
+  <p class="bullet">•&nbsp;수준 필터링 후에는 사용자가 작성한 함수 또는
+  표준 Python 함수가 향후 레이블 변환을 위해 호출될 수
+  있습니다. 예를 들어, 한 표에 <span class="screen">"Pearson 상관"</span>이
+  있는 반면, 다른 표의 해당 레이블은 <span class=
+  "화면">"상관계수"</span>일 수 있습니다. 사용자 정의 함수는 결과 세트가 매치하도록
+  레이블 중 하나를 변환할 수 있습니다.</p>
+
+  <p class="bullet">•&nbsp;사용자 정의 표는 "Statistics"라는 숨겨진 수준을
+  가질 수 있습니다. 기본적으로 유의성 표를 기본 표에 병합할 경우
+  이 수준이 생략됩니다. 명령문에서 이를 대체할 수 있습니다.</p>
+
+  <p class="bullet">•&nbsp;함수가 없음을 리턴하면 해당 셀이
+  병합되지 않습니다.</p>
+
+  <p class="bullet">•&nbsp;표준 함수가 수행하는 작업은 <span class="screen">배치 포인트 차원</span>
+  설정에 따라 다릅니다. <span class="screen">열</span>의 경우, 행 함수가 없고
+  열 함수가 열 레이블의 마지막 레벨을 삭제합니다. <span class="screen">행</span>의 경우,
+  배치 포인트 레이블과 매치하면 행 함수가 레이블의 마지막 레벨을
+  삭제합니다. 열 함수는 보조 표에서 마지막 레벨을 삭제하지만
+  기본 표에서는 아무 작업도 하지 않습니다.</p>
+
+  <p class="bullet">•&nbsp;표준 함수는 사용자 정의 표 기본 표와 열 비율 또는
+  열 평균 검정표에 대해 작업하도록 계획됩니다. 이는 이러한 표과 함께
+  일반적으로 수준 필터링을 사용하는 데 필요하지 않습니다. 기본 표의
+  배치 포인트 레이블은 기본 표에 각 범주 아래 둘 이상의 통계가
+  있는 경우 보조 값을 추가할 위치를 제어합니다. 다른 유형의 병합을 위해
+  표준 함수를 표시하지 않을 수 있습니다.</p>
+
+  <p><span class="runinhead">병합 함수 유형.</span> 함수의 표순 세트 또는 사용자 정의 세트를
+  선택하십시오.</p>
+
+  <p class="bullet">•&nbsp;사용자 정의 세트를 선택할 경우, 표준 행도 표준 열 함수도
+  적용되지 않습니다. 있는 경우 이름 지정된 사용자 정의 행 또는 열 함수만
+  적용됩니다. 행 및 열 함수를 둘 다 제공할 필요는 없습니다. 따라서
+  사용자 정의를 선택하고 함수 이름을 입력하지 않을 경우,
+  함수가 적용되지 않습니다.</p>
+
+  <p><span class="runinhead">사용자 정의 행 또는 열 함수.</span>
+  함수 이름을<br>
+  module.function 형식으로 입력하십시오.<br>
+  여기서 module은 함수가 정의된 Python 모듈
+  이름입니다. 이러한 함수는 두 번째 라디오 단추가 설정된 경우에만
+  사용됩니다.</p>
+
+  <h2>추가 기능</h2>
+
+  <p>이 대화 상자는 SPSSINC MERGE TABLES 확장 명령문에 대한
+  명령문을 생성합니다. 이 명령에 대한 도움말을 표시하려면 다음 구문을 실행하십시오.</p>
+
+  <p class="codeblock">SPSSINC MERGE TABLES /HELP.</p>
+
+  <p>기본 및 보조표를 선택하기 위해 추가 기능을 다른 방법으로 명령문에서
+  사용할 수 있습니다. 복합 표의 경우, 이는 조합 이전에 행 및 열 레이블을
+  전처리하기 위해 사용자 정의 rowfunc 및 colfunc 함수를 기록하는 데
+  필요할 수 있습니다. 또한 레이블 텍스트가 아닌 행 또는 열 번호를 기반으로
+  표를 병합할 수도 있습니다. SPSSINC_MERGE_TABLES에는 이를 설명하는
+  rowfuncbynumber 및 colfuncbynumber라는 예제 함수가
+  포함되어 있습니다. SPSSINC_MERGE_TABLES.py 모듈에는 사용자 정의
+  병합 함수를 사용하는 데 대한 추가 정보가 포함되어 있습니다.</p>
+
+  <h2>요구 사항</h2>
+
+  <p>이 대화 상자를 사용하려면 Integration Plug-In for Python과 SPSSINC MERGE TABLES 확장 명령문이
+  필요합니다. IBM SPSS Statistics 19 이상의 경우 이 플러그인과 확장 명령은 Essentials for Python 패키지와 함께 설치됩니다. 자세한 정보는 IBM SPSS Statistics 도움말 시스템의
+  Core System &gt; 자주 묻는 질문에서 통합 플러그인을 얻는 방법을
+  참조하십시오. SPSS Community에서 SPSSINC MERGE TABLES를 다운로드한 경우
+  관련된 ReadMe 파일의 지침을 따르십시오.</p><br>
+  <hr>
+
+  <p style="font-size:80%;">
+  © Copyright IBM Corp. 1989, 2013</p>
+</body>
+</html>
