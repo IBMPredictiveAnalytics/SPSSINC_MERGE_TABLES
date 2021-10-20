@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Fusionar dos tablas del visor</title>
+  <style type="text/css">
+
+  <!-- 
+
+  H1 {font-weight:bold; color:#006699; font-size:125%; }
+  H2 {font-weight:bold; color:#006699; font-size:110%; }
+  TABLE {font-size:100%;}
+
+  /* paragraph tags */
+  .step {text-indent: -1.3em; margin-left:1.3em; margin-top: 0px;}
+  .menuselection {margin-left:10px}
+  .bullet {list-style-type: disc;margin-top:12px; margin-left:36px; text-indent:-1em; }
+  .codeblock {background-color: #ffffe6; display:block; margin-left:5px; padding:5px;}
+
+  /* inline tags */
+  .screen {font-weight:bold; color:#408080}                       /*** used refer to on-screen text ***/
+  .name {font-style: italic}                                                       /*** used to tag names, such as variable names, file names, and so forth ***/
+  .runinhead {font-weight: bold} 
+  .superscript {vertical-align:super; font-size:80%}
+  .subscript {vertical-align:sub; font-size:80%}
+
+
+  --> 
+  </style>
+</head>
+
+<body>
+  <h1>Fusionar dos tablas del visor</h1>Este procedimiento combina valores de casillas de una tabla con valores de otra tabla. La tabla suministradora se denomina tabla secundaria y la tabla receptora es la tabla primaria. El uso más común es combinar la proporción u obtener la media de las tablas de prueba de Tablas personalizadas con la tabla principal, pero existen muchos otros tipos de fusiones.
+
+  <p>Las casillas de la combinación se unen mediante las etiquetas de fila y columna de las dos tablas. Pueden combinarse con un nombre en el nivel más interno como "Recuento" para indicar dónde deben ir los valores en casos en los que la misma etiqueta de categoría puede contener más de un estadístico. Algunos tipos de tablas no se pueden fusionar. Es posible que sea necesario experimentar.</p>
+
+  <p class="bullet">•&nbsp;Las Notas al pie de la tabla secundaria no se pueden trasladar a la tabla primaria.</p>
+
+  <p><span class="runinhead">Punto de archivo adjunto.</span> Indica la dimensión que contiene la etiqueta de la tabla primaria que define dónde se adjuntarán los valores de la tabla secundaria, de haber alguno.</p>
+
+  <p><span class="runinhead">Etiqueta en tabla primaria.</span>
+  Especifica opcionalmente la etiqueta de nivel inferior donde deben insertarse los valores secundarios. Por ejemplo, una tabla podría tener etiquetas "Recuento" y "Porcentaje" bajo cada categoría de variable. Este control proporciona una forma de elegir cuál utilizar.</p>
+
+  <p class="bullet">•&nbsp;Vacíe el campo si no hay ninguna etiqueta repetida y los valores de categoría se deben utilizar solos para definir la unión. Tenga en cuenta, sin embargo, que en ocasiones, la etiqueta sigue presente pero oculta y se debe especificar. Este es el caso, en concreto, si selecciona Ocultar una etiqueta de estadísticos con Tablas personalizadas.</p>
+
+  <p><span class="runinhead">Tipo de tabla primaria y secundaria.</span> De forma predeterminada, este procedimiento fusiona las últimas dos tablas en el visor, considerando a la última la tabla secundaria. Introduzca los subtipos de tabla SGR para especificar otras tablas. Alternativamente, puede introducir un par de números de elementos del visor absolutos.
+  El elemento de raíz del visor es el número 0.</p>
+
+  <p class="bullet">•&nbsp;Debe introducir ambos subtipos o no introducir ninguno.</p>
+
+  <p class="bullet">•&nbsp;Para buscar el subtipo de tabla, pulse con el botón derecho en el titular de un ejemplo o consulte el cuadro de diálogo Identificadores SGR en el menú <span class="screen">Utilidades</span>.</p>
+
+  <p class="bullet">•&nbsp;La búsqueda de tablas funciona desde el final del visor al principio.</p>
+
+  <p><span class="runinhead">Modo de fusión.</span> Seleccione <span class=
+  "screen">Añadir valor de casilla secundario al primario</span> para añadir los valores secundarios a los primarios. Seleccione <span class=
+  "screen">Sustituir valor de casilla primario por secundario</span> para sustituir el valor primario de tabla por el valor secundario. Si no hay ningún valor secundario disponible, se mantiene el valor primario.</p>
+
+  <p><span class="runinhead">Ocultar tabla secundaria tras la fusión.</span> Seleccione esta casilla de verificación para ocultar la tabla secundaria después de la fusión.</p>
+
+  <p><span class="runinhead">Añadir título de tabla secundaria a la tabla primaria.</span> Seleccione esta casilla de verificación para añadir el título de tabla secundaria al final del título de tabla primaria.</p>
+
+  <p><span class="runinhead">Añadir información de pie secundario.</span> Seleccione esta casilla de verificación para añadir el pie de la tabla secundaria a la primaria. (Esta opción no funciona en algunas versiones de IBM® SPSS® Statistics).</p>
+
+  <p><span class="runinhead">Añadir etiqueta secundaria.</span> Seleccione esta casilla de verificación para añadir la etiqueta de la tabla secundaria a la columna correspondiente de la tabla primaria. Incluye el carácter o caracteres de separación utilizados en las casillas de datos.</p>
+
+  <p><span class="runinhead">Suprimir nota al pie de advertencia de capa.</span> Este procedimiento sólo funciona en la capa superior de una tabla. Si una tabla tiene capas adicionales, se añade una nota de advertencia al pie. Seleccione esta casilla de verificación para suprimir la nota al pie.</p>
+
+  <p><span class="runinhead">Imprimir niveles de etiqueta para la primera fila y columna.</span> Seleccione esta casilla de verificación para mostrar todos los niveles de etiqueta de ambas tablas antes y después de cualquier transformación. Como las tablas suelen tener niveles ocultos, esta información es de utilidad para especificar la forma en que las etiquetas de las dos tablas coinciden.</p>
+
+  <p><span class="runinhead">Alineación horizontal de casillas tras la fusión.</span> Utilice estos controles para determinar cómo se alinean los valores de casillas después de combinarse.</p>
+
+  <p><span class="runinhead">Caracteres de separación personalizados.</span>
+  Introduzca uno o más caracteres que separarán los valores primarios y secundarios en la casilla. Utilice "\n" para indicar que los valores deben estar en líneas separadas.</p>
+
+  <p><span class="runinhead">Uniones.</span> Pulse el botón <span class="screen">Uniones</span> para especificar los detalles sobre cómo se unen las etiquetas.</p>
+
+  <h2>Subcuadro de diálogo Personalizar reglas de uniones de etiquetas</h2>Las casillas de tabla dinámica se igualan según las siguientes reglas que se aplican a las etiquetas de fila y columna.
+
+  <p class="bullet">•&nbsp; Las etiquetas se filtran por selecciones de nivel. Puede seleccionar los niveles que se utilizan para igualar casillas introduciendo uno o más números en los controles de las columnas y filas primaria y secundaria. Por ejemplo, si una dimensión de tabla tiene un conjunto de etiquetas<br>
+  <span class="code">A B C</span><br>
+  el nivel 0 es A, el nivel 1 es B y el nivel 2 es C. Si introduce 1,2 en el control, el conjunto de etiquetas se transforma en<br>
+  <span class="code">B C</span><br>
+  antes de intentar igualarlo con el conjunto de etiquetas en la dimensión correspondiente de la otra tabla. Es posible que necesite diferentes selecciones en las dos tablas si la estructura es diferente.</p>
+
+  <p class="bullet">•&nbsp; La transformación del conjunto de etiquetas utiliza el orden en el que se introducen los números. Por lo tanto, 1 2 y 2 1 producen resultados diferentes.</p>
+
+  <p class="bullet">•&nbsp; Utilice la casilla de verificación <span class="screen">Imprimir niveles de etiqueta para la primera fila y columna</span> en el cuadro de diálogo principal para revelar la estructura completa de las tablas.</p>
+
+  <p class="bullet">•&nbsp;Después de cualquier filtrado de nivel, las funciones de Python estándar o escritas por el usuario se pueden activar para transformar aún más las etiquetas. Por ejemplo, una tabla puede tener una etiqueta <span class="screen">"Correlación de Pearson"</span> mientras que la etiqueta correspondiente en la otra tabla puede ser <span class=
+  "screen">"Coeficiente de correlación"</span>. Una función personalizada podría transformar una de las etiquetas de forma que el conjunto resultante coincida.</p>
+
+  <p class="bullet">•&nbsp;Las tablas personalizadas pueden tener un nivel oculto denominado "Estadísticos". De forma predeterminada, este nivel se omite al fusionar tablas de significación en la tabla principal. Es posible anular esta función en la sintaxis.</p>
+
+  <p class="bullet">•&nbsp;Si la función devuelve None, la casilla no se fusionará.</p>
+
+  <p class="bullet">•&nbsp;La acción de las funciones estándar depende del ajuste <span class="screen">Dimensión de punto de archivo adjunto</span>. En <span class="screen">Columna</span>, la función de fila no hace nada y la función de columna elimina el último nivel de la etiqueta de columna. En <span class="screen">Fila</span>, la función de fila elimina el último nivel de la etiqueta si coincide con la etiqueta de punto de archivo adjunto. La función de columna elimina el último nivel de la tabla secundaria pero no tiene ningún efecto en la tabla primaria.</p>
+
+  <p class="bullet">•&nbsp;Las funciones estándar están diseñadas para trabajar con la tabla principal Tablas personalizadas y las tablas de prueba Proporciones de columna o Medias de columnas. Generalmente no es necesario utilizar el filtrado de nivel con estas tablas. La etiqueta de punto de archivo adjunto de la tabla principal controla dónde se añade el valor secundario si la tabla principal tiene más de un estadístico en cada categoría.
+  Es posible que desee suprimir las funciones estándar para otro tipo de fusiones.</p>
+
+  <p><span class="runinhead">Tipo de función de unión.</span> Seleccione el conjunto estándar de funciones o un conjunto personalizado.</p>
+
+  <p class="bullet">•&nbsp;Si selecciona un conjunto personalizado, no se aplicará la función de la fila estándar ni la columna estándar.
+  Sólo se aplicarán las funciones de fila o columna personalizada con nombre, si las hay. No es necesario proporcionar las funciones de fila ni de columna. Por lo tanto, si selecciona Personalizado y no introduce nombres de funciones, no se aplicará ninguna función.</p>
+
+  <p><span class="runinhead">Función de fila o columna personalizada.</span>
+  Introduzca los nombres de la función con el formato<br>
+  módulo.función<br>
+  donde módulo es el nombre del módulo de Python donde se define la función. Estas funciones sólo se utilizan si se define el segundo botón de selección.</p>
+
+  <h2>Características adicionales</h2>
+
+  <p>Este cuadro de diálogo genera la sintaxis del comando de extensión SPSSINC MERGE TABLES. Para mostrar la ayuda de este comando, ejecute la siguiente sintaxis:</p>
+
+  <p class="codeblock">SPSSINC MERGE TABLES /HELP.</p>
+
+  <p>Existen características adicionales disponibles en la sintaxis para otras formas de seleccionar las tablas primaria y secundaria. En tablas complejas, puede ser necesario escribir las funciones personalizadas rowfunc y colfunc para preprocesar las etiquetas de fila y columna antes de combinarlas.
+  Es posible fusionar tablas basadas en los números de fila o columna en vez del texto de la etiqueta. SPSSINC_MERGE_TABLES contiene funciones de ejemplo denominadas rowfuncbynumber y colfuncbynumber que ilustran eso. El módulo SPSSINC_MERGE_TABLES.py contiene información acerca del uso de funciones de fusión personalizadas.</p>
+
+  <h2>Requisitos</h2>
+
+  <p>Este cuadro de diálogo requiere el complemento de integración de Python y el comando de extensión SPSSINC MERGE TABLES. Para IBM SPSS Statistics 19 y versiones posteriores, el complemento y el comando de extensión se instalan con el paquete Essentials for Python. Si desea más información, consulte Cómo obtener complementos de integración, en Sistema principal &gt; Preguntas más frecuentes en el sistema de ayuda de IBM SPSS Statistics. Si ha descargado SPSSINC MERGE TABLES de la Comunidad de SPSS, siga las instrucciones del archivo léame asociado.</p><br>
+  <hr>
+
+  <p style="font-size:80%;">
+  © Copyright IBM Corp. 1989, 2013</p>
+</body>
+</html>

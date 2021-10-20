@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Extension xmlns="http://spss.com/clementine/extensions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" debug="false" version="1.0" xsi:schemaLocation="http://spss.com/clementine/extensions http://xml.spss.com/clementine/extensions/CLEFSpecificationFile.xsd">
+	<ExtensionDetails copyright="Licensed Materials - Property of IBM.  IBM SPSS Products: Statistics Common (C) Copyright IBM Corp. 1989, 2013.  US Government Users Restricted Rights - Use, duplication or  disclosure restricted by GSA ADP Schedule Contract with IBM Corp." description="" id="SPSSINC_MERGE_TABLES" label="" provider="SPSS, Inc." providerTag="spss" version="1.0"/>
+	<Resources>
+		<Bundle id="bundle1" path="SPSSINC_MERGE_TABLES" type="properties"/>
+	</Resources>
+	<CommonObjects>
+		<Actions>
+			<Action id="SPSSINC_MERGE_TABLES_action" imagePath="IBMdialogicon.png" label="Merge Viewer Tables..." labelKey="SPSSINC_MERGE_TABLES_action.LABEL"/>
+		</Actions>
+	</CommonObjects>
+	<UserInterface>
+		<Controls>
+			<MenuItem action="SPSSINC_MERGE_TABLES_action" offset="9" showIcon="true" spssMenu="Utilities"/>
+		</Controls>
+	</UserInterface>
+	<Node id="SPSSINC_MERGE_TABLES" label="Merge Viewer Tables" labelKey="SPSSINC_MERGE_TABLES.LABEL" type="modelBuilder">
+		<Properties>
+			<Property name="SPSSINC_MERGE_TABLES" syntax="SPSSINC MERGE TABLES %%matchlabel%% %%attach%%&#10;%%mode%% %%LabelJoins%%&#10;%%primarytable%% %%secondarytable%%&#10;/OPTIONS %%hide%% %%appendtitle%% %%appendcaption%% %%appendlabelleaf%%&#10;%%halign%% %%separatortext%% %%layer_footnote%% %%debug%%"/>
+			<Property description="false" name="SPSSINC_MERGE_TABLES_modal"/>
+			<Property defaultValue="item_169_a" description="Attach the secondary table value to the primary or replace the primary." descriptionKey="mode_tooltip.LABEL" label="Merge Mode" labelKey="mode.LABEL" name="mode" syntax="MODE=%%ThisValue%%" valueType="enum">
+				<Enumeration>
+					<Enum description="" descriptionKey="item_169_a_tooltip.LABEL" hasSubGroup="false" label="Append secondary cell value to primary" labelKey="item_169_a.LABEL" mnemonic="A" mnemonicKey="item_169_a_mnemonic.VALUE" syntax="MERGE" value="item_169_a"/>
+					<Enum description="" descriptionKey="item_169_b_tooltip.LABEL" hasSubGroup="false" label="Replace primary cell value by secondary" labelKey="item_169_b.LABEL" mnemonic="M" mnemonicKey="item_169_b_mnemonic.VALUE" syntax="REPLACE" value="item_169_b"/>
+				</Enumeration>
+			</Property>
+			<Property defaultValue="" description="OMS table subtype for the table to receive the merge" descriptionKey="primarytable_tooltip.LABEL" label="Primary Table Type:" labelKey="primarytable.LABEL" name="primarytable" syntax="TABLES=&quot;%%ThisValue%%&quot;" valueType="string"/>
+			<Property defaultValue="" description="OMS table subtype for the table to supply the values to be merged into the primary table" descriptionKey="secondarytable_tooltip.LABEL" label="Secondary Table Type:" labelKey="secondarytable.LABEL" name="secondarytable" syntax="&quot;%%ThisValue%%&quot;" valueType="string"/>
+			<Property defaultValue="true" description="" descriptionKey="hide_tooltip.LABEL" label="Hide secondary table after merge" labelKey="hide.LABEL" name="hide" syntax="HIDE=YES±HIDE=NO" valueType="boolean"/>
+			<Property defaultValue="true" description="" descriptionKey="appendtitle_tooltip.LABEL" label="Append secondary table title to primary table" labelKey="appendtitle.LABEL" name="appendtitle" syntax="APPENDTITLE=YES±APPENDTITLE=NO" valueType="boolean"/>
+			<Property defaultValue="true" description="" descriptionKey="appendcaption_tooltip.LABEL" label="Append secondary caption information" labelKey="appendcaption.LABEL" name="appendcaption" syntax="APPENDCAPTION=YES±APPENDCAPTION=NO" valueType="boolean"/>
+			<Property defaultValue="item_186_a" description="" descriptionKey="halign_tooltip.LABEL" label="Horizontal Cell Alignment After Merge" labelKey="halign.LABEL" name="halign" syntax="HALIGN=%%ThisValue%%" valueType="enum">
+				<Enumeration>
+					<Enum description="Align data cells right after merge" descriptionKey="item_186_a_tooltip.LABEL" hasSubGroup="false" label="Right" labelKey="item_186_a.LABEL" mnemonic="G" mnemonicKey="item_186_a_mnemonic.VALUE" syntax="RIGHT" value="item_186_a"/>
+					<Enum description="Center data cells after merge" descriptionKey="item_186_b_tooltip.LABEL" hasSubGroup="false" label="Center" labelKey="item_186_b.LABEL" mnemonic="E" mnemonicKey="item_186_b_mnemonic.VALUE" syntax="CENTER" value="item_186_b"/>
+					<Enum description="Align data cells left after merge" descriptionKey="halign_c_tooltip.LABEL" hasSubGroup="false" label="Left" labelKey="halign_c.LABEL" mnemonic="F" mnemonicKey="halign_c_mnemonic.VALUE" syntax="LEFT" value="halign_c"/>
+				</Enumeration>
+			</Property>
+			<Property defaultValue="false" description="This command does not merge layers.  Check this box to suppress a warning footnote when layers are present." descriptionKey="layer_footnote_tooltip.LABEL" label="Suppress layer warning footnote" labelKey="layer_footnote.LABEL" name="layer_footnote" syntax="LAYERFOOTNOTE=&quot;&quot;±" valueType="boolean"/>
+			<Property defaultValue="\n" description="Characters to insert between the primary and secondary values.  Use \n for a line break." descriptionKey="separatortext_tooltip.LABEL" isRequired="true" label="Separator Character(s):" labelKey="separatortext.LABEL" name="separatortext" syntax="SEPARATOR=&quot;%%ThisValue%%&quot;" valueType="string"/>
+			<Property description="" descriptionKey="userfuncs_tooltip.LABEL" label="Join Functions" labelKey="userfuncs.LABEL" name="userfuncs" syntax="%%ThisValue%%"/>
+			<Property defaultValue="item_81_a" description="" descriptionKey="functionset_tooltip.LABEL" label="Type of Join Function" labelKey="functionset.LABEL" name="functionset" syntax="%%ThisValue%%" valueType="enum">
+				<Enumeration>
+					<Enum description="Use the standard set of label transformation functions" descriptionKey="item_81_a_tooltip.LABEL" hasSubGroup="false" label="Standard set" labelKey="item_81_a.LABEL" mnemonic="S" mnemonicKey="item_81_a_mnemonic.VALUE" value="item_81_a"/>
+					<Enum description="Use only the specified label transformation functions" descriptionKey="item_81_b_tooltip.LABEL" hasSubGroup="false" label="Only the functions named below" labelKey="item_81_b.LABEL" mnemonic="N" mnemonicKey="item_81_b_mnemonic.VALUE" syntax="STANDARDFUNCTIONS=NO" value="item_81_b"/>
+				</Enumeration>
+			</Property>
+			<Property defaultValue="" description="Enter name as modulename.function name to transform row labels in joining" descriptionKey="userrowfunc_tooltip.LABEL" label="Custom Row Function:" labelKey="userrowfunc.LABEL" name="userrowfunc" syntax="ROWFUNCTION=&quot;%%ThisValue%%&quot;" valueType="string"/>
+			<Property defaultValue="" description="Enter name as modulename.functionname to transform column labels in joining" descriptionKey="usercolfunc_tooltip.LABEL" label="Custom Column Function:" labelKey="usercolfunc.LABEL" name="usercolfunc" syntax="COLFUNCTION=&quot;%%ThisValue%%&quot;" valueType="string"/>
+			<Property description="" descriptionKey="item_116_tooltip.LABEL" label="Primary Table Labels to Use" labelKey="item_116.LABEL" name="item_116" syntax="%%ThisValue%%"/>
+			<Property defaultValue="" description="Enter list of row label column numbers to use in joining" descriptionKey="prirowlist_tooltip.LABEL" label="Row Label Levels:" labelKey="prirowlist.LABEL" name="prirowlist" syntax="PRIROWLEVELS=%%ThisValue%%" valueType="string"/>
+			<Property defaultValue="" description="Enter list of column label row numbers to use in joining" descriptionKey="pricolslist_tooltip.LABEL" label="Column Label Levels:" labelKey="pricolslist.LABEL" name="pricolslist" syntax="PRICOLLEVELS=%%ThisValue%%" valueType="string"/>
+			<Property description="" descriptionKey="item_117_tooltip.LABEL" label="Secondary Table Labels to Use" labelKey="item_117.LABEL" name="item_117" syntax="%%ThisValue%%"/>
+			<Property defaultValue="" description="Enter list of row label column numbers to use in joining" descriptionKey="secrowslist_tooltip.LABEL" label="Row Label Levels:" labelKey="secrowslist.LABEL" name="secrowslist" syntax="SECROWLEVELS=%%ThisValue%%" valueType="string"/>
+			<Property defaultValue="" description="Enter list of column label row numbers to use in joining" descriptionKey="seccollist_tooltip.LABEL" label="Column Label Levels:" labelKey="seccollist.LABEL" name="seccollist" syntax="SECCOLLEVELS=%%ThisValue%%" valueType="string"/>
+			<Property defaultValue="false" description="Check this box to display all the levels in the tables for the first cell to help in creating the join specifications." descriptionKey="debug_tooltip.LABEL" label="Print label levels for first row and column" labelKey="debug.LABEL" name="debug" syntax="PRINTLEVELS=YES±" valueType="boolean"/>
+			<Property description="" descriptionKey="item_89_tooltip.LABEL" label="Attachment Point" labelKey="item_89.LABEL" name="item_89" syntax="%%ThisValue%%"/>
+			<Property defaultValue="attachcols" description="" descriptionKey="attach_tooltip.LABEL" label="Dimension" labelKey="attach.LABEL" name="attach" syntax="%%ThisValue%%" valueType="enum">
+				<Enumeration>
+					<Enum description="Attach values according to column label" descriptionKey="attachcols_tooltip.LABEL" hasSubGroup="false" label="Column" labelKey="attachcols.LABEL" mnemonic="C" mnemonicKey="attachcols_mnemonic.VALUE" syntax="ATTACH=COLUMNS" value="attachcols"/>
+					<Enum description="Attach values according to row label" descriptionKey="attachrows_tooltip.LABEL" hasSubGroup="false" label="Row" labelKey="attachrows.LABEL" mnemonic="W" mnemonicKey="attachrows_mnemonic.VALUE" syntax="ATTACH=ROWS" value="attachrows"/>
+				</Enumeration>
+			</Property>
+			<Property defaultValue="Count" description="Label of rows or columns to receive merged values.  Case sensitive.  Make empty to match just on categories" descriptionKey="matchlabel_tooltip.LABEL" label="Label in Primary Table (Omit if None):" labelKey="matchlabel.LABEL" name="matchlabel" syntax="MATCHLABEL=&quot;%%ThisValue%%&quot;" valueType="string"/>
+			<Property defaultValue="true" description="Attach the label from the secondary table to the primary label" descriptionKey="appendlabelleaf_tooltip.LABEL" label="Append secondary label" labelKey="appendlabelleaf.LABEL" name="appendlabelleaf" syntax="ADDLABELLEAF=YES±ADDLABELLEAF=NO" valueType="boolean"/>
+		</Properties>
+		<UserInterface>
+			<Tabs>
+				<Tab helpLink="SPSSINC_MERGE_TABLES.htm">
+					<PropertiesPanel>
+						<RadioButtonGroupControl property="mode" rows="2" useSubPanel="false">
+							<Layout columnWeight="1.0" fill="both" gridColumn="0" gridRow="4" gridWidth="1" rowWeight="1.0"/>
+							<RadioButton property="item_169_a"/>
+							<RadioButton property="item_169_b"/>
+						</RadioButtonGroupControl>
+						<TextBoxControl mnemonic="P" mnemonicKey="primarytable_mnemonic.VALUE" property="primarytable">
+							<Layout columnWeight="1.0" fill="horizontal" gridColumn="0" gridRow="1" gridWidth="1" rowWeight="0.0"/>
+						</TextBoxControl>
+						<TextBoxControl mnemonic="S" mnemonicKey="secondarytable_mnemonic.VALUE" property="secondarytable">
+							<Layout columnWeight="1.0" fill="horizontal" gridColumn="0" gridRow="2" gridWidth="1" rowWeight="0.0"/>
+						</TextBoxControl>
+						<CheckBoxControl mnemonic="H" mnemonicKey="hide_mnemonic.VALUE" property="hide">
+							<Layout columnWeight="1.0" fill="none" gridColumn="1" gridRow="0" gridWidth="1" rowWeight="0.0"/>
+						</CheckBoxControl>
+						<CheckBoxControl mnemonic="Y" mnemonicKey="appendtitle_mnemonic.VALUE" property="appendtitle">
+							<Layout columnWeight="1.0" fill="none" gridColumn="1" gridRow="1" gridWidth="1" rowWeight="0.0"/>
+						</CheckBoxControl>
+						<CheckBoxControl mnemonic="D" mnemonicKey="appendcaption_mnemonic.VALUE" property="appendcaption">
+							<Layout columnWeight="1.0" fill="none" gridColumn="1" gridRow="2" gridWidth="1" rowWeight="0.0"/>
+						</CheckBoxControl>
+						<RadioButtonGroupControl property="halign" rows="3" useSubPanel="false">
+							<Layout columnWeight="1.0" fill="both" gridColumn="1" gridRow="6" gridWidth="1" rowWeight="1.0"/>
+							<RadioButton property="item_186_a"/>
+							<RadioButton property="item_186_b"/>
+							<RadioButton property="halign_c"/>
+						</RadioButtonGroupControl>
+						<StaticText text="Tip: If no table types are specified, the latest table is\nsecondary, and the one before that is primary." textKey="item_219.LABEL">
+							<Layout columnWeight="1.0" fill="none" gridColumn="0" gridRow="3" gridWidth="1" rowWeight="0.0"/>
+						</StaticText>
+						<StaticText text="This dialog requires the Integration Plug-In for Python." textKey="item_220.LABEL">
+							<Layout columnWeight="1.0" fill="none" gridColumn="1" gridRow="8" gridWidth="1" rowWeight="0.0"/>
+						</StaticText>
+						<CheckBoxControl mnemonic="U" mnemonicKey="layer_footnote_mnemonic.VALUE" property="layer_footnote">
+							<Layout columnWeight="1.0" fill="none" gridColumn="1" gridRow="4" gridWidth="1" rowWeight="0.0"/>
+						</CheckBoxControl>
+						<TextBoxControl mnemonic="T" mnemonicKey="separatortext_mnemonic.VALUE" property="separatortext">
+							<Layout columnWeight="1.0" fill="horizontal" gridColumn="1" gridRow="7" gridWidth="1" rowWeight="0.0"/>
+						</TextBoxControl>
+						<PropertiesSubPanel buttonDescription="Click to specify details of merging function" buttonDescriptionKey="item_29_tooltip.LABEL" buttonLabel="Joins..." buttonLabelKey="item_29.LABEL" dialogTitle="Customize Label Join Rules" dialogTitleKey="LabelJoins.TITLE" helpLink="" mnemonic="J" mnemonicKey="item_29_mnemonic.VALUE">
+							<Layout columnWeight="0.0" fill="none" gridColumn="2" gridRow="0" gridWidth="1" rowWeight="0.0"/>
+							<PropertiesPanel>
+								<PropertiesPanel id="userfuncs" label="Join Functions" labelKey="userfuncs.LABEL">
+									<Layout columnWeight="1.0" fill="both" gridColumn="0" gridRow="1" gridWidth="1" rowWeight="1.0"/>
+									<RadioButtonGroupControl property="functionset" rows="2" useSubPanel="false">
+										<Layout columnWeight="1.0" fill="both" gridColumn="0" gridRow="0" gridWidth="1" rowWeight="0.0"/>
+										<RadioButton property="item_81_a"/>
+										<RadioButton property="item_81_b"/>
+									</RadioButtonGroupControl>
+									<TextBoxControl mnemonic="W" mnemonicKey="userrowfunc_mnemonic.VALUE" property="userrowfunc">
+										<Layout columnWeight="1.0" fill="horizontal" gridColumn="0" gridRow="1" gridWidth="1" rowWeight="0.0"/>
+									</TextBoxControl>
+									<TextBoxControl mnemonic="F" mnemonicKey="usercolfunc_mnemonic.VALUE" property="usercolfunc">
+										<Layout columnWeight="1.0" fill="horizontal" gridColumn="0" gridRow="2" gridWidth="1" rowWeight="1.0"/>
+									</TextBoxControl>
+								</PropertiesPanel>
+								<PropertiesPanel id="item_116" label="Primary Table Labels to Use" labelKey="item_116.LABEL">
+									<Layout columnWeight="1.0" fill="both" gridColumn="0" gridRow="0" gridWidth="1" rowWeight="1.0"/>
+									<TextBoxControl mnemonic="R" mnemonicKey="prirowlist_mnemonic.VALUE" property="prirowlist">
+										<Layout columnWeight="1.0" fill="horizontal" gridColumn="0" gridRow="0" gridWidth="1" rowWeight="0.0"/>
+									</TextBoxControl>
+									<TextBoxControl mnemonic="C" mnemonicKey="pricolslist_mnemonic.VALUE" property="pricolslist">
+										<Layout columnWeight="1.0" fill="horizontal" gridColumn="0" gridRow="1" gridWidth="1" rowWeight="1.0"/>
+									</TextBoxControl>
+								</PropertiesPanel>
+								<PropertiesPanel id="item_117" label="Secondary Table Labels to Use" labelKey="item_117.LABEL">
+									<Layout columnWeight="1.0" fill="both" gridColumn="1" gridRow="0" gridWidth="1" rowWeight="1.0"/>
+									<TextBoxControl mnemonic="O" mnemonicKey="secrowslist_mnemonic.VALUE" property="secrowslist">
+										<Layout columnWeight="1.0" fill="horizontal" gridColumn="0" gridRow="0" gridWidth="1" rowWeight="0.0"/>
+									</TextBoxControl>
+									<TextBoxControl mnemonic="U" mnemonicKey="seccollist_mnemonic.VALUE" property="seccollist">
+										<Layout columnWeight="1.0" fill="horizontal" gridColumn="0" gridRow="1" gridWidth="1" rowWeight="1.0"/>
+									</TextBoxControl>
+								</PropertiesPanel>
+								<StaticText text="Specify which levels of the labels\nshould be used in matching.\nThe outermost level is 0.\nSome tables have invisible levels." textKey="item_201.LABEL">
+									<Layout columnWeight="1.0" fill="none" gridColumn="1" gridRow="1" gridWidth="1" rowWeight="0.0"/>
+								</StaticText>
+								<StaticText text="You can also enter names\nof functions that transform the\nlabels before comparison.\n" textKey="item_202.LABEL">
+									<Layout columnWeight="1.0" fill="none" gridColumn="1" gridRow="2" gridWidth="1" rowWeight="0.0"/>
+								</StaticText>
+							</PropertiesPanel>
+						</PropertiesSubPanel>
+						<CheckBoxControl mnemonic="N" mnemonicKey="debug_mnemonic.VALUE" property="debug">
+							<Layout columnWeight="1.0" fill="none" gridColumn="1" gridRow="5" gridWidth="1" rowWeight="0.0"/>
+						</CheckBoxControl>
+						<PropertiesPanel id="item_89" label="Attachment Point" labelKey="item_89.LABEL">
+							<Layout columnWeight="1.0" fill="both" gridColumn="0" gridRow="0" gridWidth="1" rowWeight="1.0"/>
+							<RadioButtonGroupControl property="attach" rows="2" useSubPanel="false">
+								<Layout columnWeight="1.0" fill="both" gridColumn="0" gridRow="0" gridWidth="1" rowWeight="0.0"/>
+								<RadioButton property="attachcols"/>
+								<RadioButton property="attachrows"/>
+							</RadioButtonGroupControl>
+							<TextBoxControl mnemonic="L" mnemonicKey="matchlabel_mnemonic.VALUE" property="matchlabel">
+								<Layout columnWeight="1.0" fill="horizontal" gridColumn="0" gridRow="1" gridWidth="1" rowWeight="0.0"/>
+							</TextBoxControl>
+							<StaticText text="Tip: Custom Tables can hide the statistics label\nbut it is still there and should be listed when\nmerging the test table" textKey="item_179.LABEL">
+								<Layout columnWeight="1.0" fill="none" gridColumn="0" gridRow="2" gridWidth="1" rowWeight="1.0"/>
+							</StaticText>
+						</PropertiesPanel>
+						<CheckBoxControl mnemonic="B" mnemonicKey="appendlabelleaf_mnemonic.VALUE" property="appendlabelleaf">
+							<Layout columnWeight="1.0" fill="none" gridColumn="1" gridRow="3" gridWidth="1" rowWeight="0.0"/>
+						</CheckBoxControl>
+						<StaticText text="This dialog was created using a later version of PASW Statistics\nand certain features may not function as intended." textKey="v17_warning.LABEL">
+							<Layout columnWeight="1.0" fill="horizontal" gridColumn="0" gridRow="5" gridWidth="1" rowWeight="1.0"/>
+						</StaticText>
+					</PropertiesPanel>
+				</Tab>
+			</Tabs>
+		</UserInterface>
+	</Node>
+</Extension>

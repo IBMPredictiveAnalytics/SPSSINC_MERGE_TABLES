@@ -1,115 +1,64 @@
-#/***********************************************************************
-# * Licensed Materials - Property of IBM 
-# *
-# * IBM SPSS Products: Statistics Common
-# *
-# * (C) Copyright IBM Corp. 1989, 2014
-# *
-# * US Government Users Restricted Rights - Use, duplication or disclosure
-# * restricted by GSA ADP Schedule Contract with IBM Corp. 
-# ************************************************************************/
-
-# NLS_ENCODING=UTF-8
-# IBMUPYTH
-
-
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 #
+
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-05-21 17:51+China Standard Time\n"
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-10-11 00:53-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: ENCODING\n"
-"Generated-By: pygettext.py 1.5\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Globalization Pipeline\n"
 
-
-#: SPSSINC_MERGE_TABLES.py:25
 msgid "This module requires at least SPSS Statistics 17"
-msgstr ""
-"此模組至少需要 SPSS Statistics 17"
+msgstr "此模組至少需要 SPSS Statistics 17"
 
-#: SPSSINC_MERGE_TABLES.py:266
 msgid "---"
-msgstr ""
-"---"
+msgstr "---"
 
-#: SPSSINC_MERGE_TABLES.py:323
 msgid "Function reference %s not valid"
-msgstr ""
-"函數參照 %s 無效"
+msgstr "函數參照 %s 無效"
 
-#: SPSSINC_MERGE_TABLES.py:344
 msgid "SpssClient.StartClient failed."
-msgstr ""
-"SpssClient.StartClient 失敗。"
+msgstr "SpssClient.StartClient 失敗。"
 
-#: SPSSINC_MERGE_TABLES.py:423
 msgid "Incorrect number of table objects specified: %s"
-msgstr ""
-"指定的表格物件數不正確：%s"
+msgstr "指定的表格物件數不正確：%s"
 
-#: SPSSINC_MERGE_TABLES.py:447
-msgid "Exactly two table numbers or OMS subtypes must be specified or a requested table not found."
-msgstr ""
-"必須指定剛好兩個表格數或 OMS 子類型，否則找不到所要求的表格。"
-
-#: SPSSINC_MERGE_TABLES.py:474
-msgid "At least two table numbers must be specified."
-msgstr ""
-"必須指定至少兩個表格數。"
-
-#: SPSSINC_MERGE_TABLES.py:505
-msgid "mode must be merge or replace"
-msgstr ""
-"模式必須是合併或取代"
-
-#: SPSSINC_MERGE_TABLES.py:514
-msgid "A specified item is not a pivot table or does not exist."
-msgstr ""
-"指定的項目不是樞紐表或不存在。"
-
-#: SPSSINC_MERGE_TABLES.py:559
-msgid "Only the first layer has been merged from the secondary table."
-msgstr ""
-"僅已從次要表格合併第一層。"
-
-#: SPSSINC_MERGE_TABLES.py:612
 msgid ""
-"Tables cannot be merged: The secondary table labels are not unique.\n"
-"First duplicate row and column labels after transformation:\n"
-"%s\n"
-"\n"
-"%s"
-msgstr ""
-"無法合併表格：次要表格標籤不是唯一的。\n"
-"轉換之後的第一個重複列和欄標籤：\n"
-"%s\n"
-"\n"
-"%s"
+"Exactly two table numbers or OMS subtypes must be specified or a requested "
+"table not found."
+msgstr "必須指定剛好兩個表格數或 OMS 子類型，否則找不到所要求的表格。"
 
-#: SPSSINC_MERGE_TABLES.py:739 SPSSINC_MERGE_TABLES.py:748
-#: SPSSINC_MERGE_TABLES.py:848 SPSSINC_MERGE_TABLES.py:852
-#: SPSSINC_MERGE_TABLES.py:859 SPSSINC_MERGE_TABLES.py:863
+msgid "At least two table numbers must be specified."
+msgstr "必須指定至少兩個表格數。"
+
+msgid "mode must be merge or replace"
+msgstr "模式必須是合併或取代"
+
+msgid "A specified item is not a pivot table or does not exist."
+msgstr "指定的項目不是樞紐表或不存在。"
+
+msgid "Only the first layer has been merged from the secondary table."
+msgstr "僅已從次要表格合併第一層。"
+
+msgid ""
+"Tables cannot be merged: The secondary table labels are not unique.\nFirst "
+"duplicate row and column labels after transformation:\n%s\n\n%s"
+msgstr "無法合併表格：次要表格標籤不是唯一的。\n轉換之後的第一個重複列和欄標籤：\n%s\n\n%s"
+
 msgid "Statistics"
-msgstr ""
-"統計資料"
+msgstr "統計資料"
 
-#: SPSSINC_MERGE_TABLES.py:794
 msgid "A row label level is out of range.  Labels: %s, Index: %s"
-msgstr ""
-"列標籤層次超出範圍。標籤：%s，索引：%s"
+msgstr "列標籤層次超出範圍。標籤：%s，索引：%s"
 
-#: SPSSINC_MERGE_TABLES.py:811
 msgid "A column label level is out of range.  Labels: %s, Index: %s"
-msgstr ""
-"欄標籤層次超出範圍。標籤：%s，索引：%s"
-
-
-
+msgstr "欄標籤層次超出範圍。標籤：%s，索引：%s"

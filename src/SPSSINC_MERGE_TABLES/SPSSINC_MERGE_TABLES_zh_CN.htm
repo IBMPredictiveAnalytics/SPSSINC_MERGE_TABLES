@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>合并两个查看器表</title>
+  <style type="text/css">
+
+  <!-- 
+
+  H1 {font-weight:bold; color:#006699; font-size:125%; }
+  H2 {font-weight:bold; color:#006699; font-size:110%; }
+  TABLE {font-size:100%;}
+
+  /* paragraph tags */
+  .step {text-indent: -1.3em; margin-left:1.3em; margin-top: 0px;}
+  .menuselection {margin-left:10px}
+  .bullet {list-style-type: disc;margin-top:12px; margin-left:36px; text-indent:-1em; }
+  .codeblock {background-color: #ffffe6; display:block; margin-left:5px; padding:5px;}
+
+  /* inline tags */
+  .screen {font-weight:bold; color:#408080}                       /*** used refer to on-screen text ***/
+  .name {font-style: italic}                                                       /*** used to tag names, such as variable names, file names, and so forth ***/
+  .runinhead {font-weight: bold} 
+  .superscript {vertical-align:super; font-size:80%}
+  .subscript {vertical-align:sub; font-size:80%}
+
+
+  --> 
+  </style>
+</head>
+
+<body>
+  <h1>合并两个查看器表</h1>此过程将一个表中的单元格值与另一个表中的值合并。提供值的表称为辅助表，接收值的表称为主表。最常见的用法是，将“定制表”所产生的比例检验表或平均值检验表与主表合并，但也可以进行许多其他类型的合并。
+
+  <p>要合并的单元格通过两个表的行标签和列标签进行连接。这些单元格可以进行合并，并在最内级别通过某个名称（例如“Count”）来指示同一个类别标签下面可能存在多项统计时，值应当前往的位置。某些类型的表无法合并。可能有必要进行一些试验。</p>
+
+  <p class="bullet">•&nbsp;辅助表中的脚注不会传递到主表。</p>
+
+  <p><span class="runinhead">附加点</span>。指示包含主表标签的维，该标签用于定义辅助表值（如果有）的附加位置。</p>
+
+  <p><span class="runinhead">主表中的标签</span>。选择性地指定最低级别的标签，辅助表值应该插入到该位置。例如，在一个表中，在每个变量类别下面可能都有标签“Count”和“Percent”。此控件使您能够选择所要使用的标签。</p>
+
+  <p class="bullet">•&nbsp;如果不存在此类重复标签，并且应该单独使用类别值本身来定义连接，请保留此字段为空。但是，请注意，有时标签尽管存在，但却处于隐藏状态，在这种情况下需要进行指定。具体而言，当您选择使用“定制表”隐藏统计标签时，情况即如此。</p>
+
+  <p><span class="runinhead">主表及辅助表类型</span>。缺省情况下，此过程将查看器中的最后两个表合并，并将最后一个表视为辅助表。输入 OMS 表子类型可以指定其他表。另外，也可以输入一对绝对查看器项编号。查看器根项的编号为 0。</p>
+
+  <p class="bullet">•&nbsp;必须同时输入或同时不输入这两种子类型。</p>
+
+  <p class="bullet">•&nbsp;要查找表子类型，请右键单击某个示例的大纲标题，或者参考通过<span class="screen">实用程序</span>菜单打开的“OMS 标识”对话框。</p>
+
+  <p class="bullet">•&nbsp;表搜索操作从查看器末尾开始向后执行。</p>
+
+  <p><span class="runinhead">合并方式</span>。选择<span class= "screen">将辅助单元格值追加到主单元格值</span>表示将辅助表值追加到主表值。选择<span class= "screen">将主单元格值替换为辅助表值</span>表示将主表值替换为辅助表值。如果没有可用的辅助表值，那么将保留主表值。</p>
+
+  <p><span class="runinhead">合并后隐藏辅助表</span>。选中此框表示使辅助表在合并后不可见。</p>
+
+  <p><span class="runinhead">将辅助表标题追加到主表</span>。选中此框表示将辅助表标题添加到主表标题末尾。</p>
+
+  <p><span class="runinhead">追加辅助表文字说明信息</span>。选中此框表示将辅助表中的文字说明添加到主表文字说明末尾。（在某些 IBM® SPSS® Statistics 版本中，此选项无效。）</p>
+
+  <p><span class="runinhead">追加辅助表标签</span>。选中此框表示将辅助表中的标签添加到相应的主列中。这将包括数据单元格中使用的分隔符。</p>
+
+  <p><span class="runinhead">不添加层警告脚注</span>。此过程仅对表的顶层执行操作。如果表具有其他层，那么将添加警告脚注。选中此框表示不添加此脚注。</p>
+
+  <p><span class="runinhead">打印首行和首列的标签级别</span>。选中此框表示在所有转换之前以及之后显示两个表的所有标签级别。因为表经常具有隐藏级别，所以此信息有助于您指定两个表中的标签的匹配方式。</p>
+
+  <p><span class="runinhead">合并后单元格水平对齐</span>。使用这些控件可以确定单元格值在合并后如何对齐。</p>
+
+  <p><span class="runinhead">定制分隔符</span>。请输入一个或多个字符，单元格中的主表值和辅助表值应使用这些字符进行分隔。使用“\n”表示每个值各占一行。</p>
+
+  <p><span class="runinhead">连接</span>。单击<span class="screen">连接</span>按钮可以指定有关标签连接方式的详细信息。</p>
+
+  <h2>“定制标签连接规则”子对话框</h2>透视表单元格按照以下应用于行标签和列标签的规则进行匹配。
+<p class="bullet">•&nbsp;标签按级别选择进行过滤。您可以在主表及辅助表的行与列控件中输入一个或多个数字，以选择用于匹配单元格的级别。例如，如果某个表维具有下面这组标签：<br>
+  <span class="code">A B C</span><br>
+  级别 0 是 A，级别 1 是 B，级别 2 是 C。在此控件中输入 1,2 会导致先将标签集转换为以下内容：<br>
+  <span class="code">B C</span><br>
+  然后再尝试将其与另一个表的相应维中的标签集进行匹配。如果结构不同，那么您可能需要在这两个表中进行不同的选择。</p>
+
+  <p class="bullet">•&nbsp;标签集转换将使用这些数字的输入顺序。因此，1 2 与 2 1 将生成不同的结果。</p>
+
+  <p class="bullet">•&nbsp;使用主对话框中的<span class="screen">打印首行和首列的标签级别</span>复选框可以显示表的完整结构。</p>
+
+  <p class="bullet">•&nbsp;进行任何级别过滤后，可以调用用户编写的 Python 函数或标准 Python
+函数以进一步转换标签。例如，一个表的标签可能是<span class="screen">“Pearson Correlation”</span>，而另一个表中的相应标签可能是<span class= "screen">“Correlation Coefficient”</span>。定制函数可以对其中一个标签进行转换，以使结果集匹配。</p>
+
+  <p class="bullet">•&nbsp;“定制表”可能具有名为“Statistics”的隐藏级别。缺省情况下，将显著性表合并到主表中时，将省略此级别。您可以在语法中覆盖此设置。</p>
+
+  <p class="bullet">•&nbsp;如果该函数返回 None，那么将不会合并该单元格。</p>
+
+  <p class="bullet">•&nbsp;标准函数执行的操作取决于<span class="screen">连接点维</span>设置。对于<span class="screen">列</span>，行函数不执行任何操作，而列函数将删除最后一个级别的列标签。对于<span class="screen">行</span>，行函数将删除最后一个级别的标签，前提是此标签与连接点标签匹配。列函数将删除辅助表中的最后一个级别，但在主表中不执行任何操作。</p>
+
+  <p class="bullet">•&nbsp;标准函数用于处理“定制表”主表以及“列比例”或“列平均值”检验表。通常不必对这些表进行级别过滤。主表的连接点标签用于控制主表在每个类别下具有多项统计时辅助表值的连接位置。对于其他类型的合并，您可能希望排除标准函数。</p>
+
+  <p><span class="runinhead">连接函数类型</span>。请选择标准函数集合或定制函数集合。</p>
+
+  <p class="bullet">•&nbsp;如果您选择定制集合，那么既不会应用标准行函数，也不会应用标准列函数。将仅应用指定的定制行函数或列函数（如果有）。您不必同时提供行函数和列函数。因此，如果您选择“定制”但未输入任何函数名称，那么将不会应用任何函数。</p>
+
+  <p><span class="runinhead">定制行函数或列函数</span>。请按以下格式输入函数名：<br>
+  module.function<br>
+  其中，module 是其中定义了 function 的 Python 模块名。仅当设置了第二个单选按钮时，才会使用这些函数。</p>
+
+  <h2>其他功能部件</h2>
+
+  <p>此对话框将生成 SPSSINC MERGE TABLES 扩展命令的语法。要显示此命令的帮助，请运行以下语法：</p>
+
+  <p class="codeblock">SPSSINC MERGE TABLES /HELP。</p>
+
+  <p>语法中提供了其他功能，用于以其他方式选择主表和辅助表。对于复杂表，可能有必要编写定制的行函数和列函数，以便在合并之前对行标签和列标签进行预处理。另外，还可以根据行号或列号（而不是标签文本）来合并表。SPSSINC_MERGE_TABLES 包含名为 rowfuncbynumber 和
+colfuncbynumber 的示例函数，它们演示了此功能。SPSSINC_MERGE_TABLES.py
+模块包含有关使用定制合并函数的更多信息。</p>
+
+  <h2>要求</h2>
+
+  <p>此对话框需要 Integration Plug-In for Python 和 SPSSINC MERGE TABLES
+扩展命令。对于 IBM SPSS Statistics 19 及更高版本而言，此 Plug-In 和扩展命令随
+Essentials for Python 程序包一起安装。有关更多信息，请参阅“IBM SPSS Statistics
+帮助”系统的“核心系统”&gt;“常见问题”中的“如何获取集成插件”。如果您是从
+SPSS Community 下载 SPSSINC MERGE TABLES，请按相关自述文件中的指示信息执行操作。</p><br>
+  <hr>
+
+  <p style="font-size:80%;">
+  © Copyright IBM Corp. 1989, 2013</p>
+</body>
+</html>

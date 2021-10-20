@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>合併兩個檢視器表格</title>
+  <style type="text/css">
+
+  <!-- 
+
+  H1 {font-weight:bold; color:#006699; font-size:125%; }
+  H2 {font-weight:bold; color:#006699; font-size:110%; }
+  TABLE {font-size:100%;}
+
+  /* paragraph tags */
+  .step {text-indent: -1.3em; margin-left:1.3em; margin-top: 0px;}
+  .menuselection {margin-left:10px}
+  .bullet {list-style-type: disc;margin-top:12px; margin-left:36px; text-indent:-1em; }
+  .codeblock {background-color: #ffffe6; display:block; margin-left:5px; padding:5px;}
+
+  /* inline tags */
+  .screen {font-weight:bold; color:#408080}                       /*** used refer to on-screen text ***/
+  .name {font-style: italic}                                                       /*** used to tag names, such as variable names, file names, and so forth ***/
+  .runinhead {font-weight: bold} 
+  .superscript {vertical-align:super; font-size:80%}
+  .subscript {vertical-align:sub; font-size:80%}
+
+
+  --> 
+  </style>
+</head>
+
+<body>
+  <h1>合併兩個檢視器表格</h1>此程序會將一個表格中的資料格值與另一個表格中的值組合起來。供應表格是所謂的次要表格，而接收表格則是主要表格。最常見的用法是將「自訂表格」的比例或平均值檢定表格與主表格組合起來，但也可以使用許多其他類型的合併方法。
+<p>用於組合的資料格會使用兩個表格的列及欄表格結合在一起。這些資料格可與最內層的名稱（如「計數」）組合在一起，以便在相同類別標籤下可能出現多個統計資料時，指示值的正榷位置。某些種類的表格無法合併。可能需要某些試驗。</p>
+
+  <p class="bullet">•&nbsp;次要表格的註腳不會轉入主要表格中。</p>
+
+  <p><span class="runinhead">附加點。</span> 指出包含主要表格標籤的維度，它會定義將次要表格值附加到何處（如果有的話）。</p>
+
+  <p><span class="runinhead">主要表格中的標籤。</span>
+  選擇性地指定應在其中插入次要值的最低層次標籤。例如，表格在每個變數種類下方可能有「計數」及「百分比」標籤。此控制項可讓您選擇要使用的標籤。</p>
+
+  <p class="bullet">•&nbsp;如果沒有此類重複的標籤，請將欄位保留空白，且應該單獨使用種類值本身來定義結合。但是請注意，有時候隱藏的標籤仍然會出現，因此需要加以指定。特別是，當您選擇使用「自訂表格」隱藏統計資料標籤時，就會出現這種情況。</p>
+
+  <p><span class="runinhead">主要及次要表格類型。</span> 依預設，此程序會合併檢視器中的最後兩個表格，並將最後一個表格視為次要表格。輸入 OMS 表格子類型以指定其他表格。或者，您也可以輸入一對檢視器項目號碼的絕對值。檢視器根項目的號碼是 0。</p>
+
+  <p class="bullet">•&nbsp;您必須同時輸入兩個子類型或兩者都不輸入。</p>
+
+  <p class="bullet">•&nbsp;若要找到表格子類型，請在範例的大綱標題上按一下滑鼠右鍵，或參閱<span class="screen">公用程式</span>功能表上的 OMS ID 對話框。</p>
+
+  <p class="bullet">•&nbsp;表格搜尋是從檢視器結尾反向進行。</p>
+
+  <p><span class="runinhead">合併模式。</span> 選取<span class=
+  "screen">將次要資料格值附加至主要資料格值</span>以將次要值附加至主要值。選取<span class=
+  "screen">以次要資料格值取代主要資料格值</span>以使用次要值取代主要表格值。如果沒有可用的次要值，則會保留主要值。</p>
+
+  <p><span class="runinhead">合併後隱藏次要表格。</span> 勾選此方框可讓次要表格在合併後為不可見狀態。</p>
+
+  <p><span class="runinhead">將次要表格標題附加至主要表格。</span> 勾選此方框可將次要表格標題新增至主要表格標題的結尾。</p>
+
+  <p><span class="runinhead">附加次要標題資訊。</span> 勾選此方框可將標題從次要表格新增至主要表格標題。（在某些 IBM® SPSS® Statistics 版本中無法使用此選項。）</p>
+
+  <p><span class="runinhead">附加次要標籤。</span> 勾選此方框可將標籤從次要表格新增至對應的主要欄。它將包含資料格中使用的分隔字元。</p>
+
+  <p><span class="runinhead">暫停層警告註腳。</span> 此程序只能在表格最上層使用。如果表格有其他層，則會新增警告註腳。勾選此方框可暫停註腳。</p>
+
+  <p><span class="runinhead">列印第一個列和欄的標籤層次。</span> 勾選此方框可在任何轉換之前或之後顯示兩個表格的所有標籤層次。因為表格經常會隱藏層次，所以在指定兩個表格中的標籤的比對方式時，此資訊相當有用。</p>
+
+  <p><span class="runinhead">合併後資料格水平對齊。</span> 使用這些控制項可決定資料格值在組合之後的對齊方式。</p>
+
+  <p><span class="runinhead">自訂分隔字元。</span>
+  輸入應該在資料格中區隔主要及次要值的一或多個字元。使用 "\n" 指出值應該在分隔線上。</p>
+
+  <p><span class="runinhead">結合。</span> 按一下<span class="screen">結合</span>按鈕可指定標籤結合方式的詳細資料。</p>
+
+  <h2>自訂標籤結合規則子對話框</h2>樞紐表資料格會根據套用至列及欄標籤的下列規則進行比對。<p class="bullet">•&nbsp; 系統會依選擇的層次過濾標籤。您可以在主要及次要列及欄控制項中輸入一或多個數字，藉此來選取用於比對資料格的層次。例如，如果表格維度有一組標籤<br>
+  <span class="code">A B C</span><br>
+  層次 0 為 A，層次 1 為 B，層次 2 為 C。在控制項中輸入 1,2 會將標籤集轉換成<br>
+  <span class="code">B C</span><br>
+  然後再嘗試將其與其他表格的對應維度中的標籤集進行比對。如果結構不同，您可能需要在兩個表格中做出不同的選擇。</p>
+
+  <p class="bullet">•&nbsp; 標籤集轉換會使用輸入數字的順序。因此，1 2 與 2 1 會產生不同的結果。</p>
+
+  <p class="bullet">•&nbsp; 使用主要對話框上的<span class="screen">列印第一個列和欄的標籤層次</span>勾選框可顯示表格的完整結構。</p>
+
+  <p class="bullet">•&nbsp; 經過任何層次過濾之後，即會呼叫使用者撰寫的或標準的 Python 函數，以進一步轉換標籤。例如，一個表格可能會有 <span class="screen">Pearson 相關係數</span>標籤，而其他表格中的對應標籤可能是<span class="screen">相關係數</span>。自訂函數可以轉換其中一個標籤，這樣結果集就可以相符。</p>
+
+  <p class="bullet">•&nbsp;自訂表格可能有名為「統計資料」的隱藏層次。依預設，將顯著性表格合併到主要表格中時，會省略此層次。可在語法中置換此項。</p>
+
+  <p class="bullet">•&nbsp;如果函數傳回「無」，則不會合併該資料格。</p>
+
+  <p class="bullet">•&nbsp;標準函數要執行的動作取決於<span class="screen">附加點維度</span>設定。對於<span class="screen">欄</span>，列函數不會執行任何動作，而欄函數會刪除欄標籤的最後一個層次。對於<span class="screen">列</span>，列函數會刪除標籤的最後一個層次（如果它與附加點標籤相符）。欄函數會刪除次要表格中的最後一個層次，但不會在主要表格中執行任何動作。</p>
+
+  <p class="bullet">•&nbsp;標準函數的設計目的是與「自訂表格」主要表格及「欄比例」或「欄平均值」檢定表格搭配使用。一般不必對這些表格使用層次過濾。當主要表格的每個種類下方有多個統計資料時，主要表格上的附加點標籤可控制附加次要值的位置。您可能要暫停其他類型合併的標準函數。</p>
+
+  <p><span class="runinhead">結合函數類型。</span> 選擇一組標準函數或一組自訂函數。</p>
+
+  <p class="bullet">•&nbsp;如果選擇一組自訂函數，將不會套用標準列和標準欄函數。只會套用指定的自訂列或自訂欄函數（如果有的話）。不必同時提供列函數及欄函數。因此，如果您選擇「自訂」且未輸入函數名稱，則不會套用任何函數。</p>
+
+  <p><span class="runinhead">自訂列或欄函數。</span>
+  以 <br>module.function<br> 格式輸入函數名稱，這裡的 module 是在其中定義函數的 Python 模組名稱。只有在設定第二個圓鈕時，才會使用這些函數。</p>
+
+  <h2>其他特性</h2>
+
+  <p>此對話框會產生 SPSSINC MERGE TABLES 延伸指令的語法。若要顯示此指令的說明，請執行下列語法：
+
+  </p>
+
+  <p class="codeblock">SPSSINC MERGE TABLES /HELP.</p>
+
+  <p>語法中還提供其他功能，以使用其他方式選取主要及次要表格。對於複雜表格，必須撰寫自訂 rowfunc 及 colfunc 函數，才能在組合之前預先處理列及欄標籤。還可以根據列或欄號碼而不是標籤文字來合併表格。SPSSINC_MERGE_TABLES 包含名為 rowfuncbynumber 及 colfuncbynumber 的範例函數來說明這種情況。SPSSINC_MERGE_TABLES.py 模組包含關於使用自訂合併函數的進一步資訊。</p>
+
+  <h2>需求</h2>
+
+  <p>此對話框需要 Integration Plug-In for Python 及 SPSSINC MERGE TABLES 延伸指令。對於 IBM SPSS Statistics 19 及更高版本，Plug-In 及延伸指令會隨 Essentials for Python 套件一起安裝。如需相關資訊，請參閱 IBM SPSS Statistics 說明系統中「核心系統」&gt;「常見問題」下的「如何取得 Integration Plug-In」。如果您已從 SPSS 社群下載 SPSSINC MERGE TABLES請遵循相關 Readme 檔中的指示。</p><br>
+  <hr>
+
+  <p style="font-size:80%;">
+  © Copyright IBM Corp. 1989, 2013</p>
+</body>
+</html>
