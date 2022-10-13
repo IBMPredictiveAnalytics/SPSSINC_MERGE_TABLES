@@ -1,4 +1,5 @@
 Name: SPSSINC MERGE TABLES
+Display-Name: Merge Pivot Tables
 Dialog-Specs: SPSSINC_MERGE_TABLES.spd
 Command-Specs: SPSSINC_MERGE_TABLES.xml
 Code-Files: SPSSINC_MERGE_TABLES.py,tables17.py
